@@ -32,6 +32,16 @@ La prueba de integración detectó que Plaza y Acueducto en Reescritura tenían 
 
 Las dimensiones del catálogo fotográfico se separaron entre originales y archivos locales comprimidos para que los atributos `width` y `height` coincidan con los bytes entregados y eviten saltos de maquetación.
 
+## Checkpoint B · Muralla y Puerta (evolución de transiciones)
+
+Se reforzaron los dos primeros capítulos en los tres modelos para que la transición visual interprete el puente narrativo del JSON, sin alterar la identidad de cada arquitectura:
+
+- Atlas (Modelo 1): Muralla incorpora un perímetro que se traza con Efecto1.0 local (recorrido del recinto) y una banda de brecha que se abre al final; Puerta añade planos de profundidad en Z dentro del arco y una franja de desembocadura hacia la Plaza. Las entradas de detalle pasan de `opacity` a recortes `clip-path` para variar el recurso.
+- Cronología (Modelo 2): el transporte horizontal global permanece intacto. Los interiores dejan de ser horizontales: Muralla ensambla bloques en vertical con brecha final; Puerta atraviesa planos de profundidad y desemboca en la vida coral. Se conserva `inert` y el mapeo de `score.labels`.
+- Reescritura (Modelo 3): Muralla abre una brecha de estratos; Puerta añade una luz de umbral y una franja de emergencia hacia la Plaza. Sin eje X global.
+
+Las bandas de transición se colocaron en la franja de padding inferior y por detrás del contenido para evitar solapes con acciones y hechos. La validación técnica (`scripts/validate.mjs`) sigue superando las 272 comprobaciones sin incumplimientos.
+
 ## Elementos que no se han simulado
 
 - No hay actas, sellos, periódicos, planos, firmas ni citas históricas inventadas.

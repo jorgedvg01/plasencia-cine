@@ -27,21 +27,24 @@ function renderAtlasChapter(data, chapter, index) {
       <div class="wall-blocks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
       ${chapterHeading(chapter, index)}
       <div class="perimeter" aria-hidden="true"><span>${escapeHTML(chapter.milestones[0][0])}</span><i></i><b>${escapeHTML(chapter.milestones[1][0])}</b><i></i><b>${escapeHTML(chapter.milestones[2][0])}</b></div>
+      <div class="wall-perimeter" aria-hidden="true"><i></i><b></b></div>
       ${photoFigure(data, 'muralla', { className: 'atlas-lead', storyId: chapter.id, storyLabel: chapter.name, focus: chapter.focus })}
       ${photoFigure(data, 'muralla-detalle', { className: 'atlas-detail' })}
       ${primaryCopy(chapter)}
       ${factualSections(chapter)}
       <div class="atlas-actions">${storyAction(chapter)}${chapterSources(chapter)}</div>
+      <div class="wall-breach" aria-hidden="true"><span>BRECHA · EL MURO SE ABRE</span></div>
       ${transitionCopy(chapter)}
     </section>`,
     puerta: () => `<section class="atlas-leaf atlas-puerta chapter-shell" id="puerta" data-chapter="puerta" style="--chapter-paper:#d9d0ba;--chapter-ink:#2b382f">
       <div class="door-axis" aria-hidden="true"><span>EXTERIOR</span><i></i><span>INTERIOR</span></div>
-      <div class="door-aperture">${photoFigure(data, 'puerta', { className: 'atlas-lead', storyId: chapter.id, storyLabel: chapter.name, focus: '50% 45%' })}</div>
+      <div class="door-aperture"><div class="door-depth-planes" aria-hidden="true"><i></i><i></i><i></i></div>${photoFigure(data, 'puerta', { className: 'atlas-lead', storyId: chapter.id, storyLabel: chapter.name, focus: '50% 45%' })}</div>
       ${chapterHeading(chapter, index)}
       ${primaryCopy(chapter, 'threshold-copy')}
       <div class="threshold-facts">${factualSections(chapter)}</div>
       <aside class="archive-marker"><strong>${escapeHTML(chapter.archives[0][0])}</strong><p>${escapeHTML(chapter.archives[0][2])} Se enlaza el registro; la digitalización no se reproduce sin condiciones de uso cerradas.</p></aside>
       <div class="atlas-actions">${storyAction(chapter)}${chapterSources(chapter)}</div>
+      <div class="plaza-opening" aria-hidden="true"><span>AL OTRO LADO · LA PLAZA</span></div>
       ${transitionCopy(chapter)}
     </section>`,
     plaza: () => `<section class="atlas-leaf atlas-plaza chapter-shell" id="plaza" data-chapter="plaza" style="--chapter-paper:#ecd5bf;--chapter-ink:#55382e">
@@ -140,12 +143,16 @@ function rebuildMotion(reduced = shell?.reduced() ?? false) {
       if (id === 'muralla') {
         timeline.fromTo(scene.querySelectorAll('.wall-blocks i'), { scaleX: 0 }, { scaleX: 1, stagger: .08, transformOrigin: 'left' }, 0)
           .fromTo(scene.querySelector('.atlas-lead'), { x: -90, clipPath: 'inset(0 35% 0 0)' }, { x: 0, clipPath: 'inset(0 0% 0 0)' }, .08)
-          .fromTo(scene.querySelector('.atlas-detail'), { x: 70, y: -25, opacity: 0 }, { x: 0, y: 0, opacity: 1 }, .32)
-          .fromTo(scene.querySelector('.perimeter i'), { scaleX: 0 }, { scaleX: 1, stagger: .15, transformOrigin: 'left' }, .1);
+          .fromTo(scene.querySelector('.atlas-detail'), { x: 70, y: -25, clipPath: 'inset(0 0 0 40%)' }, { x: 0, y: 0, clipPath: 'inset(0 0 0 0%)' }, .32)
+          .fromTo(scene.querySelector('.perimeter i'), { scaleX: 0 }, { scaleX: 1, stagger: .15, transformOrigin: 'left' }, .1)
+          .fromTo(scene.querySelector('.wall-perimeter i'), { scaleX: 0 }, { scaleX: 1, transformOrigin: 'left', ease: 'none' }, .2)
+          .fromTo(scene.querySelector('.wall-breach'), { clipPath: 'inset(0 50% 0 50%)' }, { clipPath: 'inset(0 0% 0 0%)' }, .62);
       } else if (id === 'puerta') {
         timeline.fromTo(scene.querySelector('.door-aperture'), { scale: .82, clipPath: 'inset(18% 26% 0 26% round 48% 48% 0 0)' }, { scale: 1, clipPath: 'inset(0% 0% 0 0% round 48% 48% 0 0)' }, 0)
-          .fromTo(scene.querySelector('.chapter-heading'), { y: -55, opacity: 0 }, { y: 0, opacity: 1 }, .18)
-          .fromTo(scene.querySelector('.archive-marker'), { x: 55, opacity: 0 }, { x: 0, opacity: 1 }, .42);
+          .fromTo(scene.querySelectorAll('.door-depth-planes i'), { scale: (index) => 1.6 - index * .2, clipPath: 'inset(0 0 0 0 round 48% 48% 0 0)' }, { scale: 1, stagger: .08 }, .05)
+          .fromTo(scene.querySelector('.chapter-heading'), { y: -55, clipPath: 'inset(0 0 60% 0)' }, { y: 0, clipPath: 'inset(0 0 0% 0)' }, .18)
+          .fromTo(scene.querySelector('.archive-marker'), { x: 55, clipPath: 'inset(0 0 0 60%)' }, { x: 0, clipPath: 'inset(0 0 0 0%)' }, .42)
+          .fromTo(scene.querySelector('.plaza-opening'), { clipPath: 'inset(0 50% 0 50%)' }, { clipPath: 'inset(0 0% 0 0%)' }, .6);
       } else if (id === 'plaza') {
         timeline.fromTo(scene.querySelector('.atlas-lead'), { clipPath: 'circle(8% at 50% 50%)' }, { clipPath: 'circle(72% at 50% 50%)' }, 0)
           .fromTo(scene.querySelectorAll('.plaza-voices span'), { x: (index) => [-85, 70, -35][index], y: (index) => [0, 30, -40][index], opacity: 0 }, { x: 0, y: 0, opacity: 1, stagger: .12 }, .12)

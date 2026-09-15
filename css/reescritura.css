@@ -26,6 +26,8 @@
 .rewrite-muralla .chapter-transition{position:absolute;right:var(--gutter);top:17%;width:22rem}
 .wall-strata{position:absolute;inset:0;display:grid;grid-template-rows:repeat(5,1fr);z-index:-1;opacity:.16}.wall-strata i{border-bottom:1px solid currentColor;background:repeating-linear-gradient(90deg,currentColor 0 8%,transparent 8% 12%)}
 .perimeter-score{position:absolute;left:35%;right:4%;top:16%;display:grid;grid-template-columns:auto 1fr auto 1fr auto;align-items:center;gap:.8rem;font-size:.62rem;font-weight:600;letter-spacing:.13em}.perimeter-score i{height:.3rem;background:repeating-linear-gradient(90deg,currentColor 0 1rem,transparent 1rem 1.4rem)}
+.strata-breach{position:absolute;left:var(--gutter);right:var(--gutter);bottom:.7rem;height:1.5rem;background:repeating-linear-gradient(90deg,currentColor 0 13.5%,transparent 13.5% 15.5%,currentColor 15.5% 30%,transparent 30% 32%,currentColor 32% 46%,transparent 46% 48%,currentColor 48% 62%,transparent 62% 64%,currentColor 64% 100%);opacity:.16;pointer-events:none}
+.strata-breach span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);padding:.1rem .5rem;background:var(--chapter-paper);font-size:.56rem;font-weight:600;letter-spacing:.16em;white-space:nowrap}
 
 .rewrite-puerta .rewrite-stage{grid-template-columns:.8fr .72fr .8fr;grid-template-rows:auto 1fr auto;gap:1rem 3rem;background:radial-gradient(circle at 50% 50%,rgba(226,180,106,.16),transparent 26%)}
 .door-depth{grid-column:2;grid-row:1/4;height:calc(100svh - 5.5rem);z-index:2;clip-path:inset(0 0 0 round 50% 50% 0 0)}.door-depth .chapter-photo{height:100%;margin:0}.door-depth .photo-button{height:100%}
@@ -35,6 +37,9 @@
 .rewrite-puerta .rewrite-facts{grid-column:3;grid-row:2;align-self:end}.rewrite-puerta .facts{gap:.55rem}.rewrite-puerta .fact p{font-size:.7rem}
 .rewrite-puerta .rewrite-actions{grid-column:1;grid-row:3;display:grid}.rewrite-puerta .rewrite-actions .source-links{justify-content:flex-start;text-align:left}.rewrite-puerta .chapter-transition{grid-column:3;grid-row:3;text-align:right}
 .tunnel-planes{position:absolute;inset:5% 27%;pointer-events:none}.tunnel-planes i{position:absolute;inset:calc(var(--i,0)*1.3rem);border:1px solid rgba(244,235,219,.28);border-radius:50% 50% 0 0/25% 25% 0 0}.tunnel-planes i:nth-child(2){--i:1}.tunnel-planes i:nth-child(3){--i:2}
+.door-light{position:absolute;left:50%;top:50%;width:26rem;height:26rem;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(255,244,214,.85),rgba(255,244,214,0) 62%);filter:blur(6px);pointer-events:none;z-index:3}
+.door-emerge{position:absolute;left:var(--gutter);right:var(--gutter);bottom:.7rem;display:grid;place-items:center;height:1.6rem;border-top:1px solid rgba(240,232,217,.5);border-bottom:1px solid rgba(240,232,217,.5);pointer-events:none}
+.door-emerge span{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(.95rem,1.3vw,1.3rem);color:#f0e8d9}
 .threshold-sides{position:absolute;left:5%;right:5%;top:50%;display:flex;justify-content:space-between;font-size:.58rem;letter-spacing:.19em;pointer-events:none}
 
 .rewrite-plaza .rewrite-stage{grid-template-columns:repeat(12,1fr);grid-template-rows:auto 1fr auto;gap:.8rem 1.4rem;background:radial-gradient(circle at 51% 53%,rgba(255,255,255,.52),transparent 31%)}
@@ -109,7 +114,7 @@
   .rewrite-stage .facts,.civic-beats .facts,.quiet-copy .facts,.monument-ledger .facts{display:grid;grid-template-columns:1fr;gap:1rem}
   .rewrite-stage .fact p,.hydraulic-notes p,.quiet-copy .fact p,.monument-ledger .fact p{font-size:.9rem}
   .rewrite-actions{display:grid;gap:1rem}.rewrite-actions .source-links{justify-content:flex-start;text-align:left}
-  .wall-strata,.perimeter-score,.tunnel-planes,.threshold-sides,.plaza-orbit,.cathedral-light,.mayorga-dial,.aqueduct-diagonal,.water-stations,.park-breath,.bronze-echo{display:none}
+  .wall-strata,.perimeter-score,.strata-breach,.tunnel-planes,.door-light,.door-emerge,.threshold-sides,.plaza-orbit,.cathedral-light,.mayorga-dial,.aqueduct-diagonal,.water-stations,.park-breath,.bronze-echo{display:none}
   .plaza-focus{width:auto;margin-bottom:1rem;background:transparent}
   .cathedral-rise>span{position:static;display:block;width:max-content;margin-bottom:.5rem;background:transparent;color:inherit}
   .hydraulic-notes{display:grid;gap:1rem}

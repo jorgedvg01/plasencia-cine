@@ -30,6 +30,7 @@ function renderStation(data, chapter, index) {
       <div class="station-era"><span>${escapeHTML(chapter.milestones[0][0])}</span><i></i><span>${escapeHTML(chapter.milestones[2][0])}</span></div>
       ${chapterHeading(chapter, index)}
       <div class="chrono-wall" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div class="chrono-breach" aria-hidden="true"><span>EL RECINTO SE ABRE</span></div>
       ${photoFigure(data, 'muralla', { className: 'station-lead', storyId: chapter.id, storyLabel: chapter.name })}
       ${photoFigure(data, 'muralla-detalle', { className: 'station-detail' })}
       ${primaryCopy(chapter)}
@@ -38,12 +39,14 @@ function renderStation(data, chapter, index) {
     </section>`,
     puerta: () => `<section class="chrono-station station-puerta chapter-shell" id="puerta" data-chapter="puerta" style="--chapter-paper:#d8cfb9;--chapter-ink:#2f3b32">
       <div class="station-door-frame" aria-hidden="true"><i></i><span>ATRAVESAR</span></div>
+      <div class="station-door-planes" aria-hidden="true"><i></i><i></i><i></i></div>
       ${photoFigure(data, 'puerta', { className: 'station-lead', storyId: chapter.id, storyLabel: chapter.name, focus: '50% 42%' })}
       ${chapterHeading(chapter, index)}
       <div class="door-before"><strong>${escapeHTML(chapter.archives[0][0])}</strong><p>${escapeHTML(chapter.archives[0][2])} El registro se consulta desde el archivo enlazado.</p></div>
       ${primaryCopy(chapter)}
       <div class="station-facts">${factualSections(chapter)}</div>
-      <div class="station-actions">${storyAction(chapter)}${chapterSources(chapter)}</div>${transitionCopy(chapter)}
+      <div class="station-actions">${storyAction(chapter)}${chapterSources(chapter)}</div>
+      <div class="chrono-threshold" aria-hidden="true"><span>AL OTRO LADO · LA VIDA CORAL</span></div>${transitionCopy(chapter)}
     </section>`,
     plaza: () => `<section class="chrono-station station-plaza chapter-shell" id="plaza" data-chapter="plaza" style="--chapter-paper:#edcfb5;--chapter-ink:#52382f">
       ${chapterHeading(chapter, index)}
@@ -165,11 +168,14 @@ function composeStation(timeline, panel, at) {
   if (panel.id === 'muralla') {
     timeline.fromTo(qa('.chrono-wall i'), { y: (index) => index % 2 ? -50 : 50, scaleX: .35, opacity: 0 }, { y: 0, scaleX: 1, opacity: .25, stagger: .08, duration: .8 }, at)
       .fromTo(q('.station-lead'), { y: 62, clipPath: 'inset(30% 0 0)' }, { y: 0, clipPath: 'inset(0% 0 0)', duration: .9 }, at + .12)
-      .fromTo(q('.station-detail'), { x: 46, opacity: 0 }, { x: 0, opacity: 1, duration: .65 }, at + .45);
+      .fromTo(q('.station-detail'), { x: 46, clipPath: 'inset(0 0 0 45%)' }, { x: 0, clipPath: 'inset(0 0 0 0%)', duration: .65 }, at + .45)
+      .fromTo(q('.chrono-breach'), { clipPath: 'inset(0 50% 0 50%)' }, { clipPath: 'inset(0 0% 0 0%)', duration: .5 }, at + .95);
   } else if (panel.id === 'puerta') {
     timeline.fromTo(q('.station-door-frame'), { scale: .72, opacity: 0 }, { scale: 1, opacity: 1, duration: 1 }, at)
+      .fromTo(qa('.station-door-planes i'), { scale: (index) => 1.55 - index * .18 }, { scale: 1, stagger: .08, duration: .8 }, at)
       .fromTo(q('.station-lead'), { scale: .84, clipPath: 'inset(14% 25% 0 round 46% 46% 0 0)' }, { scale: 1, clipPath: 'inset(0 0% 0 round 46% 46% 0 0)', duration: 1 }, at + .05)
-      .fromTo(q('.chapter-heading'), { y: -40, opacity: 0 }, { y: 0, opacity: 1, duration: .6 }, at + .35);
+      .fromTo(q('.chapter-heading'), { y: -40, clipPath: 'inset(0 0 55% 0)' }, { y: 0, clipPath: 'inset(0 0 0% 0)', duration: .6 }, at + .35)
+      .fromTo(q('.chrono-threshold'), { clipPath: 'inset(0 50% 0 50%)' }, { clipPath: 'inset(0 0% 0 0%)', duration: .5 }, at + .95);
   } else if (panel.id === 'plaza') {
     timeline.fromTo(q('.station-lead'), { clipPath: 'circle(7% at 54% 52%)' }, { clipPath: 'circle(75% at 54% 52%)', duration: .85 }, at)
       .fromTo(qa('.square-voices span'), { x: (index) => [-90, 70, -50, 80][index], y: (index) => [12, -34, 42, 0][index], opacity: 0 }, { x: 0, y: 0, opacity: 1, stagger: .1, duration: .6 }, at + .18)

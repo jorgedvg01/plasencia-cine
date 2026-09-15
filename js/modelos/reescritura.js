@@ -30,6 +30,7 @@ function renderRewriteChapter(data, chapter, index) {
         <div class="wall-cut">${photoFigure(data, 'muralla', { className: 'rewrite-lead', storyId: chapter.id, storyLabel: chapter.name })}</div>
         ${photoFigure(data, 'muralla-detalle', { className: 'rewrite-detail' })}
         <div class="perimeter-score" aria-label="Hitos del recinto"><span>${escapeHTML(chapter.milestones[0][0])}</span><i></i><span>${escapeHTML(chapter.milestones[1][0])}</span><i></i><span>${escapeHTML(chapter.milestones[2][0])}</span></div>
+        <div class="strata-breach" aria-hidden="true"><span>APERTURA · EL MURO CEDE</span></div>
         ${primaryCopy(chapter)}
         <div class="rewrite-facts">${factualSections(chapter)}</div>
         <div class="rewrite-actions">${storyAction(chapter)}${chapterSources(chapter)}</div>${transitionCopy(chapter)}
@@ -38,13 +39,15 @@ function renderRewriteChapter(data, chapter, index) {
     puerta: () => `<section class="rewrite-chapter rewrite-puerta chapter-shell" id="puerta" data-chapter="puerta" data-transition="apertura" style="--chapter-paper:#17231d;--chapter-ink:#f0e8d9">
       <div class="rewrite-stage">
         <div class="tunnel-planes" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="door-light" aria-hidden="true"></div>
         <div class="door-depth">${photoFigure(data, 'puerta', { className: 'rewrite-lead', storyId: chapter.id, storyLabel: chapter.name, focus: '50% 43%' })}</div>
         ${chapterHeading(chapter, index)}
         <div class="threshold-sides"><span>EXTERIOR</span><span>PASO</span><span>INTERIOR</span></div>
         ${primaryCopy(chapter)}
         <aside class="door-archive"><strong>${escapeHTML(chapter.archives[0][0])}</strong><p>${escapeHTML(chapter.archives[0][2])} La ficha se enlaza; no se fabrica un antes/ahora.</p></aside>
         <div class="rewrite-facts">${factualSections(chapter)}</div>
-        <div class="rewrite-actions">${storyAction(chapter)}${chapterSources(chapter)}</div>${transitionCopy(chapter)}
+        <div class="rewrite-actions">${storyAction(chapter)}${chapterSources(chapter)}</div>
+        <div class="door-emerge" aria-hidden="true"><span>LA PLAZA LUMINOSA</span></div>${transitionCopy(chapter)}
       </div>
     </section>`,
     plaza: () => `<section class="rewrite-chapter rewrite-plaza chapter-shell" id="plaza" data-chapter="plaza" data-transition="eje" style="--chapter-paper:#e8cab1;--chapter-ink:#50342c">
@@ -153,16 +156,19 @@ function composeScene(gsap, timeline, scene) {
   const q = (selector) => scene.querySelector(selector);
   const qa = (selector) => scene.querySelectorAll(selector);
   if (scene.id === 'muralla') {
-    timeline.fromTo(qa('.wall-strata i'), { xPercent: (index) => index % 2 ? 34 : -34, scaleX: .4 }, { xPercent: 0, scaleX: 1, stagger: .07, duration: .7 }, 0)
+    timeline.fromTo(qa('.wall-strata i'), { xPercent: (index) => index % 2 ? 34 : -34, yPercent: (index) => index % 2 ? -8 : 8, scaleX: .4 }, { xPercent: 0, yPercent: 0, scaleX: 1, stagger: .07, duration: .7 }, 0)
       .fromTo(q('.wall-cut'), { x: -110, clipPath: 'inset(0 38% 0 0)' }, { x: 0, clipPath: 'inset(0 0% 0 0)', duration: .85 }, .06)
-      .fromTo(q('.rewrite-detail'), { x: 76, y: -24, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: .6 }, .28)
+      .fromTo(q('.rewrite-detail'), { x: 76, y: -24, clipPath: 'inset(0 0 0 42%)' }, { x: 0, y: 0, clipPath: 'inset(0 0 0 0%)', duration: .6 }, .28)
       .fromTo(q('.perimeter-score i'), { scaleX: 0 }, { scaleX: 1, stagger: .12, transformOrigin: 'left', duration: .55 }, .14)
+      .fromTo(q('.strata-breach'), { clipPath: 'inset(0 50% 0 50%)' }, { clipPath: 'inset(0 0% 0 0%)', duration: .5 }, .78)
       .to(q('.chapter-heading'), { x: 42, opacity: .14, duration: .3 }, .88);
   } else if (scene.id === 'puerta') {
     timeline.fromTo(qa('.tunnel-planes i'), { scale: (index) => 1.5 - index * .18, opacity: 0 }, { scale: 1, opacity: .48, stagger: .08, duration: .7 }, 0)
+      .fromTo(q('.door-light'), { scale: .2, opacity: 0 }, { scale: 1, opacity: .9, duration: .9 }, 0)
       .fromTo(q('.door-depth'), { scale: 1.22, clipPath: 'inset(18% 28% 0 round 50% 50% 0 0)' }, { scale: 1, clipPath: 'inset(0% 0% 0 round 50% 50% 0 0)', duration: .9 }, .05)
-      .fromTo(q('.chapter-heading'), { y: -52, opacity: 0 }, { y: 0, opacity: 1, duration: .48 }, .3)
-      .fromTo(q('.door-archive'), { x: 52, y: 20, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: .45 }, .48)
+      .fromTo(q('.chapter-heading'), { y: -52, clipPath: 'inset(0 0 55% 0)' }, { y: 0, clipPath: 'inset(0 0 0% 0)', duration: .48 }, .3)
+      .fromTo(q('.door-archive'), { x: 52, y: 20, clipPath: 'inset(0 0 0 55%)' }, { x: 0, y: 0, clipPath: 'inset(0 0 0 0%)', duration: .45 }, .48)
+      .fromTo(q('.door-emerge'), { clipPath: 'inset(0 50% 0 50%)' }, { clipPath: 'inset(0 0% 0 0%)', duration: .5 }, .84)
       .to(q('.door-depth'), { scale: 1.035, duration: .32 }, .9);
   } else if (scene.id === 'plaza') {
     timeline.fromTo(q('.plaza-opening'), { clipPath: 'circle(5% at 50% 50%)', scale: .88 }, { clipPath: 'circle(72% at 50% 50%)', scale: 1, duration: .75 }, 0)

@@ -29,6 +29,8 @@
 .station-muralla .station-actions .source-links{text-align:left;justify-content:flex-start}
 .station-muralla .chapter-transition{position:absolute;right:var(--gutter);top:33%;width:24rem}
 .chrono-wall{position:absolute;inset:20% 2% 7%;display:grid;grid-template-rows:repeat(4,1fr);opacity:.22;pointer-events:none}.chrono-wall i{border-bottom:1px solid currentColor;background:repeating-linear-gradient(90deg,currentColor 0 7%,transparent 7% 10%)}
+.chrono-breach{position:absolute;left:var(--gutter);right:var(--gutter);bottom:2.6rem;height:1.5rem;background:repeating-linear-gradient(90deg,currentColor 0 13.5%,transparent 13.5% 15.5%,currentColor 15.5% 30%,transparent 30% 32%,currentColor 32% 46%,transparent 46% 48%,currentColor 48% 62%,transparent 62% 64%,currentColor 64% 100%);opacity:.15;pointer-events:none;z-index:24}
+.chrono-breach span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);padding:.12rem .55rem;background:var(--chapter-paper);font-size:.58rem;font-weight:600;letter-spacing:.16em;white-space:nowrap}
 
 .station-puerta{grid-template-columns:.9fr .74fr .9fr;grid-template-rows:auto 1fr auto;gap:1.5rem 2.5rem}
 .station-puerta .station-lead{grid-column:2;grid-row:1/4;height:calc(100svh - 7rem);margin:0;z-index:2}
@@ -41,6 +43,13 @@
 .station-puerta .station-actions{grid-column:1;grid-row:3;display:grid}.station-puerta .station-actions .source-links{text-align:left;justify-content:flex-start}
 .station-puerta .chapter-transition{grid-column:3;grid-row:3}
 .station-door-frame{position:absolute;left:50%;top:11%;width:34vw;height:82%;border:1px solid rgba(39,52,44,.45);border-radius:50% 50% 0 0/27% 27% 0 0;transform:translateX(-50%);pointer-events:none}.station-door-frame i{position:absolute;inset:1rem;border:1px solid rgba(39,52,44,.25);border-radius:inherit}.station-door-frame span{position:absolute;top:50%;left:-2rem;font-size:.6rem;letter-spacing:.2em;transform:rotate(-90deg)}
+.station-door-planes{position:absolute;left:50%;top:13%;width:31vw;height:79%;transform:translateX(-50%);pointer-events:none;z-index:1}
+.station-door-planes i{position:absolute;left:50%;bottom:0;height:100%;border:1px solid rgba(47,59,50,.3);border-radius:50% 50% 0 0/26% 26% 0 0;transform:translateX(-50%);transform-origin:bottom center}
+.station-door-planes i:nth-child(1){width:58%;opacity:.5}
+.station-door-planes i:nth-child(2){width:78%;opacity:.36}
+.station-door-planes i:nth-child(3){width:98%;opacity:.24}
+.chrono-threshold{position:absolute;left:var(--gutter);right:var(--gutter);bottom:2.7rem;display:grid;place-items:center;height:2rem;border-top:1px solid currentColor;border-bottom:1px solid currentColor;opacity:.72;pointer-events:none;z-index:24}
+.chrono-threshold span{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(.95rem,1.3vw,1.3rem)}
 
 .station-plaza{grid-template-columns:repeat(12,1fr);grid-template-rows:auto 1fr auto;gap:1rem 1.4rem}
 .station-plaza .chapter-heading{grid-column:1/7}
@@ -108,7 +117,7 @@
   .chrono-station .fact p{font-size:.9rem}
   .station-actions{display:grid;gap:1rem}
   .station-actions .source-links{justify-content:flex-start;text-align:left}
-  .station-era,.station-door-frame,.chrono-wall,.cathedral-station-axis,.civic-dial,.station-waterline,.pipe-stops,.park-hush,.terminal-rings{display:none}
+  .station-era,.station-door-frame,.chrono-wall,.chrono-breach,.station-door-planes,.chrono-threshold,.cathedral-station-axis,.civic-dial,.station-waterline,.pipe-stops,.park-hush,.terminal-rings{display:none}
   .station-muralla .station-detail,.station-catedral .station-detail,.station-ayuntamiento .station-detail{width:72%;margin:-3rem 0 2rem auto;height:auto}
   .station-puerta .station-lead{height:auto}.station-puerta .station-lead .photo-button{aspect-ratio:3/4}
   .station-plaza .station-lead,.station-catedral .station-lead,.station-ayuntamiento .station-lead,.station-acueducto .station-lead,.station-parque .station-lead,.station-monumento .station-lead{height:auto}
