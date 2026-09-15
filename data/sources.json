@@ -1,0 +1,80 @@
+[
+  {
+    "id": "municipal-historia",
+    "label": "Ayuntamiento de Plasencia · Historia",
+    "url": "https://contenidos.plasencia.es/historia/",
+    "type": "institucional"
+  },
+  {
+    "id": "municipal-muralla",
+    "label": "Ayuntamiento de Plasencia · Muralla",
+    "url": "https://contenidos.plasencia.es/muralla/",
+    "type": "institucional"
+  },
+  {
+    "id": "municipal-puerta",
+    "label": "Ayuntamiento de Plasencia · Puerta del Sol",
+    "url": "https://contenidos.plasencia.es/puerta-del-sol/",
+    "type": "institucional"
+  },
+  {
+    "id": "municipal-plaza",
+    "label": "Ayuntamiento de Plasencia · Plaza Mayor",
+    "url": "https://contenidos.plasencia.es/plaza-mayor/",
+    "type": "institucional"
+  },
+  {
+    "id": "municipal-catedral-vieja",
+    "label": "Ayuntamiento de Plasencia · Catedral Vieja",
+    "url": "https://contenidos.plasencia.es/catedral-vieja/",
+    "type": "institucional"
+  },
+  {
+    "id": "municipal-catedral-nueva",
+    "label": "Ayuntamiento de Plasencia · Catedral Nueva",
+    "url": "https://contenidos.plasencia.es/catedral-nueva/",
+    "type": "institucional"
+  },
+  {
+    "id": "municipal-acueducto",
+    "label": "Ayuntamiento de Plasencia · Acueducto",
+    "url": "https://contenidos.plasencia.es/acueducto/",
+    "type": "institucional"
+  },
+  {
+    "id": "municipal-parque",
+    "label": "Ayuntamiento de Plasencia · Parque de los Pinos",
+    "url": "https://contenidos.plasencia.es/parque-de-los-pinos/",
+    "type": "institucional"
+  },
+  {
+    "id": "municipal-alfonso",
+    "label": "Ayuntamiento de Plasencia · Estatua ecuestre de Alfonso VIII",
+    "url": "https://contenidos.plasencia.es/alfonso-viii-estatua-ecuestre/",
+    "type": "institucional"
+  },
+  {
+    "id": "archivo-puerta",
+    "label": "Archivo Municipal · Puerta del Sol, hacia 1900",
+    "url": "https://plasencia.datalib.es/index.php/puerta-del-sol-plasencia",
+    "type": "archivo"
+  },
+  {
+    "id": "archivo-plaza",
+    "label": "Archivo Municipal · Plaza Mayor, hacia 1928",
+    "url": "https://plasencia.datalib.es/index.php/plasencia-plaza-mayor",
+    "type": "archivo"
+  },
+  {
+    "id": "archivo-mayorga",
+    "label": "Archivo Municipal · Massa en el campanario, 1930",
+    "url": "https://plasencia.datalib.es/index.php/acrobata-en-la-torre-campanario-del-ayuntamiento-plasencia",
+    "type": "archivo"
+  },
+  {
+    "id": "ceu-acueducto",
+    "label": "CEU · Resumen del estudio del acueducto, 2023",
+    "url": "https://investigacionusp.ceu.es/en/ipublic/item/10136386",
+    "type": "academica"
+  }
+]

@@ -1,3 +1,44 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Plasencia · Tres recorridos GSAP</title><link rel="stylesheet" href="fonts.css"><style>
-*{box-sizing:border-box}body{margin:0;background:#e9e4d8;color:#303b32;font:13px/1.8 Manrope,Arial,sans-serif;padding:65px 6% 80px}a{color:inherit;text-decoration:none}a:focus-visible{outline:2px solid #565;outline-offset:8px}.eyebrow{letter-spacing:3px;font-size:9px}h1{font:400 clamp(65px,7.6vw,115px)/.95 'Cormorant Garamond',Georgia;letter-spacing:-3px;margin:35px 0}h1 em{font-weight:400}.introduction{display:flex;justify-content:space-between;align-items:end;gap:40px}.introduction>p{max-width:300px;font-size:12px;margin-bottom:40px}.choices{display:grid;grid-template-columns:repeat(3,1fr);gap:4%;margin-top:55px}.choice{display:block;border-top:1px solid #7c827655;padding-top:18px}.number{font-size:9px;letter-spacing:2px;display:flex;justify-content:space-between}.picture{height:270px;margin:22px 0 25px;overflow:hidden;position:relative}.picture img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s}.choice:hover img{transform:scale(1.06)}.choice:nth-child(1) .picture{border-radius:45% 45% 0 0}.choice:nth-child(2) .picture{background:#171e21}.choice:nth-child(2) img{filter:brightness(.55) saturate(.55)}.choice:nth-child(3) .picture{padding:15px;background:#d8d0bb}.picture span{position:absolute;bottom:18px;left:20px;font:italic 38px 'Cormorant Garamond';color:#fff;text-shadow:0 2px 15px #000}.choice h2{font:400 39px/1.1 'Cormorant Garamond';margin:0 0 15px}.choice p{font-size:12px;min-height:65px;max-width:310px}.enter{display:flex;justify-content:space-between;border-bottom:1px solid #8885;padding:15px 0;font-size:10px}.foot{margin-top:70px;font-size:10px;opacity:.7;max-width:750px}@media(max-width:800px){.introduction{display:block}.choices{grid-template-columns:1fr;gap:40px}.picture{height:300px}.choice p{min-height:0}body{padding-top:40px}}
-</style></head><body><p class="eyebrow">PLASENCIA / ESTUDIOS DE MOVIMIENTO / GSAP + SCROLLTRIGGER</p><div class="introduction"><h1>La historia cambia<br><em>de dirección.</em></h1><p>Tres recorridos completos. Ocho capítulos en cada uno. Una misma ciudad, tres formas de descubrirla.</p></div><main class="choices"><a class="choice" href="01-coreografia.html"><span class="number">01 / EVOLUCIÓN <b>↗</b></span><div class="picture"><img src="assets/puerta.jpg" alt="Puerta del Sol"><span>Encuentros</span></div><h2>Coreografía</h2><p>La estética que conoces, con escenas que comparten pantalla y se entregan el recorrido lateralmente, en diagonal y mediante aproximaciones.</p><span class="enter">ENTRAR EN EL RELATO <b>→</b></span></a><a class="choice" href="02-nocturno.html"><span class="number">02 / OTRA MIRADA <b>↗</b></span><div class="picture"><img src="assets/catedral-real.jpg" alt="Catedral"><span>Materia y luz</span></div><h2>Nocturno</h2><p>El mismo motor con una composición más oscura, ejes distintos, tipografía editorial y un tono cobrizo que acompaña la piedra.</p><span class="enter">ENTRAR EN EL RELATO <b>→</b></span></a><a class="choice" href="03-atlas.html"><span class="number">03 / DESDE CERO <b>↗</b></span><div class="picture"><img src="assets/acueducto-real.jpg" alt="Acueducto"><span>Atlas sensible</span></div><h2>El lugar y su huella</h2><p>Una estructura nueva: páginas conectadas en dos dimensiones. El scroll se convierte en un camino con giros entre historias.</p><span class="enter">DESPLEGAR EL ATLAS <b>→</b></span></a></main><p class="foot">Usa la rueda con normalidad. El índice permite saltar a cada capítulo; el botón circular activa la lectura sin movimiento. Las tres versiones incluyen los recursos localmente. Textos literarios provisionales.</p></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tres experiencias para recorrer la historia de Plasencia a través de ocho lugares.">
+  <title>Plasencia · Tres miradas históricas</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/selector.css">
+</head>
+<body>
+  <header class="selector-header">
+    <a href="index.html">PLASENCIA</a>
+    <span>TRES MIRADAS · OCHO CAPÍTULOS</span>
+    <a href="creditos.html">Fuentes y fotografías ↗</a>
+  </header>
+  <main>
+    <section class="selector-intro" aria-labelledby="selector-title">
+      <p>1186 — HOY · HISTORIA, ARQUITECTURA Y MEMORIA</p>
+      <h1 id="selector-title">La misma ciudad.<br><em>Tres maneras de recorrerla.</em></h1>
+      <p class="intro-copy">Los hechos y las fotografías son comunes. Cambian la arquitectura, el ritmo, la dirección del movimiento y la forma de descubrir cada capítulo.</p>
+    </section>
+    <nav class="model-selector" aria-label="Elegir una versión">
+      <a class="model-card atlas-card" href="01-atlas.html">
+        <figure><img src="assets/historia/muralla.jpg" alt="Torre Lucía y muralla de Plasencia" width="1280" height="960"></figure>
+        <span class="number">01</span>
+        <div><small>EXPLORACIÓN ESPACIAL</small><h2>Atlas sensible</h2><p>La historia se despliega como un territorio de hojas, rutas, umbrales y claros.</p><b>Entrar en el atlas ↗</b></div>
+      </a>
+      <a class="model-card chronology-card" href="02-cronologia.html">
+        <figure><img src="assets/historia/plaza.jpg" alt="Plaza Mayor de Plasencia" width="6000" height="4000"></figure>
+        <span class="number">02</span>
+        <div><small>SCROLL VERTICAL · TIEMPO HORIZONTAL</small><h2>Cronología horizontal</h2><p>Una línea transporta entre épocas; cada monumento conserva su propio gesto interno.</p><b>Seguir la línea ↗</b></div>
+      </a>
+      <a class="model-card rewrite-card" href="03-reescritura.html">
+        <figure><img src="assets/historia/catedral.jpg" alt="Catedral Nueva de Plasencia" width="2048" height="1181"></figure>
+        <span class="number">03</span>
+        <div><small>UMBRAL · ASCENSO · PROFUNDIDAD · PAUSA</small><h2>Reescritura integral</h2><p>Ocho arquitecturas enlazadas sin un eje global dominante ni una plantilla repetida.</p><b>Abrir las capas ↗</b></div>
+      </a>
+    </nav>
+  </main>
+  <footer><p>Capítulos: Muralla · Puerta del Sol · Plaza Mayor · Catedral · Ayuntamiento y Mayorga · Acueducto · Parque de los Pinos · Alfonso VIII.</p><a href="documentacion/MATRIZ_24_TRATAMIENTOS.md">Consultar la matriz narrativa ↗</a></footer>
+</body>
+</html>

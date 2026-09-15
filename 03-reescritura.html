@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Reescritura integral de la historia de Plasencia mediante capas, umbrales, ascensos y pausas.">
+  <title>Reescritura integral · Plasencia</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/f9.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/editorial.css">
+  <link rel="stylesheet" href="css/reescritura.css">
+  <script defer src="vendor/gsap.min.js"></script>
+  <script defer src="vendor/ScrollTrigger.min.js"></script>
+  <script type="module" src="js/modelos/reescritura.js"></script>
+</head>
+<body class="model-page rewrite-page is-static" data-model="reescritura">
+  <a class="skip-link" href="#story-root">Saltar al recorrido</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Volver a las tres versiones"><span>PLASENCIA</span><small>Archivo de una ciudad</small></a>
+    <p class="edition-label">03 / REESCRITURA INTEGRAL</p>
+    <div class="header-actions">
+      <button class="text-button" id="motion-toggle" type="button" aria-pressed="false">Modo lectura</button>
+      <button class="text-button" id="chapters-open" type="button">Capítulos <span aria-hidden="true">＋</span></button>
+    </div>
+  </header>
+  <main>
+    <section class="prologue prologue-rewrite" id="inicio" aria-labelledby="cover-title">
+      <div class="prologue-copy">
+        <p class="eyebrow">PLASENCIA · PIEDRA, AGUA, TIEMPO</p>
+        <h1 id="cover-title">La ciudad escrita <em>en capas.</em></h1>
+        <p>No existe un solo rumbo. Cada capítulo abre su propia arquitectura: atravesar, ascender, expandirse, detenerse o mirar de cerca.</p>
+        <a class="enter-link" href="#muralla">Abrir la primera capa <span aria-hidden="true">↓</span></a>
+      </div>
+      <figure class="master-image">
+        <img src="assets/base-4k.png" alt="Composición artística maestra con monumentos de Plasencia" width="3840" height="2160" fetchpriority="high">
+        <figcaption>Composición artística maestra · presentación del conjunto</figcaption>
+      </figure>
+      <div class="rewrite-rule" aria-hidden="true"></div>
+    </section>
+    <div id="story-root" class="story-root" aria-live="polite"><p class="loading-copy">Leyendo las capas…</p></div>
+  </main>
+</body>
+</html>

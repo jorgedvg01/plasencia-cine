@@ -1,0 +1,455 @@
+[
+  {
+    "id": "muralla",
+    "name": "La muralla",
+    "era": "Finales del XII · comienzos del XIII",
+    "shortEra": "XII–XIII",
+    "date": "1201",
+    "verb": "Proteger",
+    "title": "Una ciudad empieza por sus límites.",
+    "brief": "Tras la fundación de Plasencia, el recinto amurallado definió su defensa. La ficha municipal sitúa su conclusión en 1201, después de la ocupación almohade de 1196 y la recuperación castellana.",
+    "question": "¿Qué significaba vivir dentro de una muralla?",
+    "intro": "Antes de ser un paseo entre piedras antiguas, la muralla fue una infraestructura de defensa. Torres, accesos y un recinto doble organizaban la relación entre la ciudad y el territorio.",
+    "sections": [
+      [
+        "Una defensa que se transforma",
+        "El Ayuntamiento sitúa la construcción entre finales del siglo XII y comienzos del XIII. La ocupación almohade de 1196 y la recuperación posterior forman parte del contexto de su refuerzo. El recinto no debe entenderse como una obra uniforme ejecutada de una sola vez."
+      ],
+      [
+        "Leer el conjunto",
+        "La divulgación municipal describe un perímetro aproximado de 2,2 kilómetros. Para entenderlo conviene distinguir el muro principal, la defensa exterior, las torres y las puertas. Cada uno cumplía un papel dentro de un sistema común."
+      ],
+      [
+        "De límite a patrimonio",
+        "Hoy, recorrer sus tramos permite observar cómo la ciudad ha crecido junto a su antigua defensa. La piedra conserva diferencias de aparejo y reparaciones; fechar cada una exige un estudio arqueológico, no solo una fotografía."
+      ]
+    ],
+    "milestones": [
+      [
+        "Finales del XII",
+        "Construcción del recinto tras la fundación."
+      ],
+      [
+        "1196",
+        "Ocupación almohade, según la síntesis municipal."
+      ],
+      [
+        "1201",
+        "Conclusión indicada por el Ayuntamiento."
+      ]
+    ],
+    "detail": "muralla-detalle",
+    "focus": "50% 50%",
+    "note": "Las cifras de torres y puertas varían según la época y el criterio de recuento. No se adopta un número único.",
+    "transition": "Una ciudad necesita límites. También necesita lugares por los que entrar.",
+    "sources": [
+      [
+        "Ayuntamiento · Muralla",
+        "https://contenidos.plasencia.es/muralla/"
+      ]
+    ],
+    "archives": []
+  },
+  {
+    "id": "puerta",
+    "name": "Puerta del Sol",
+    "era": "Origen medieval · reforma a finales del XV",
+    "shortEra": "Medieval",
+    "date": "XV",
+    "verb": "Entrar",
+    "title": "El umbral de muchas vidas.",
+    "brief": "La Puerta del Sol pertenece al recinto medieval. Una reforma de finales del siglo XV dejó símbolos como el escudo de los Reyes Católicos. A través de ella, la defensa se convierte en calle.",
+    "question": "¿Cómo se convierte una entrada defensiva en un lugar cotidiano?",
+    "intro": "La puerta reúne dos historias: la del acceso a una ciudad amurallada y la de las personas que lo atravesaron cada día. Su origen medieval no fecha todos los elementos que vemos hoy.",
+    "sections": [
+      [
+        "Una puerta, varias épocas",
+        "La ficha municipal sitúa una reforma a finales del siglo XV y destaca el escudo de los Reyes Católicos y la imagen de la Virgen de la Paz. La fecha exacta de la primera construcción no está cerrada en la documentación consultada."
+      ],
+      [
+        "La vida junto al arco",
+        "El Archivo Municipal conserva una fotografía de hacia 1900 atribuida a los Hermanos Díez. Personas y animales aparecen junto a la entrada: el documento permite mirar el lugar como espacio de tránsito, además de como arquitectura."
+      ],
+      [
+        "Un detalle que desapareció",
+        "La descripción archivística señala que una cruz fue derribada por un carro en 1912. Este pequeño episodio recuerda que los monumentos también cambian por sucesos cotidianos. Puede consultarse la imagen histórica en el registro original."
+      ]
+    ],
+    "milestones": [
+      [
+        "Edad Media",
+        "Acceso del recinto; primera fecha precisa no determinada."
+      ],
+      [
+        "Finales del XV",
+        "Reforma recogida por la ficha municipal."
+      ],
+      [
+        "Hacia 1900",
+        "Fotografía de los Hermanos Díez conservada en el archivo."
+      ]
+    ],
+    "detail": "monumento",
+    "focus": "50% 55%",
+    "note": "La fecha destacada del siglo XV corresponde a una reforma, no al nacimiento de la puerta.",
+    "transition": "Tras el umbral, el recinto deja paso al intercambio y a la vida compartida.",
+    "sources": [
+      [
+        "Ayuntamiento · Puerta del Sol",
+        "https://contenidos.plasencia.es/puerta-del-sol/"
+      ]
+    ],
+    "archives": [
+      [
+        "Puerta del Sol, hacia 1900 · Hermanos Díez",
+        "https://plasencia.datalib.es/index.php/puerta-del-sol-plasencia",
+        "LMMP_FOT_37 · Personas, animales y entorno de la entrada."
+      ]
+    ]
+  },
+  {
+    "id": "plaza",
+    "name": "Plaza Mayor",
+    "era": "Origen medieval · transformación continua",
+    "shortEra": "Medieval",
+    "date": "Martes",
+    "verb": "Intercambiar",
+    "title": "La historia también ocurre en la plaza.",
+    "brief": "El mercado de los martes y los soportales hicieron de la Plaza Mayor un centro de intercambio. Su origen medieval convive con fachadas y reformas de distintas épocas: la plaza nunca fue una obra de un solo momento.",
+    "question": "¿Qué convierte un espacio abierto en el centro de una ciudad?",
+    "intro": "Comprar, conversar, esperar. La vida pública de Plasencia se reconoce en una plaza irregular, rodeada de soportales y conectada con las calles del casco histórico.",
+    "sections": [
+      [
+        "Un espacio para el intercambio",
+        "La información municipal destaca el mercado de los martes y la organización comercial por sectores. Los soportales vinculados a los oficios ofrecen una forma de leer la plaza a través del trabajo y de las relaciones entre sus habitantes."
+      ],
+      [
+        "Muchas obras, un mismo lugar",
+        "No hay un arquitecto ni una fecha que expliquen todo el conjunto. El espacio público, las parcelas, los balcones, el pavimento y el mobiliario tienen sus propias transformaciones. El origen medieval de la plaza no convierte todas las fachadas actuales en medievales."
+      ],
+      [
+        "Mirar con ayuda del archivo",
+        "Una postal de hacia 1928 muestra el quiosco, el arbolado y otra organización del espacio. Otra fotografía, fechada aproximadamente entre 1935 y 1950, documenta los soportales del número 6. Son dos escalas distintas: el conjunto y una casa concreta."
+      ]
+    ],
+    "milestones": [
+      [
+        "Edad Media",
+        "Centro urbano y comercial."
+      ],
+      [
+        "Hacia 1928",
+        "Postal general conservada por el Archivo Municipal."
+      ],
+      [
+        "1935–1950",
+        "Fotografía del número 6, datación aproximada del catálogo."
+      ]
+    ],
+    "detail": "plaza",
+    "focus": "50% 55%",
+    "note": "El mercado semanal y la celebración del Martes Mayor tienen historias relacionadas, pero no intercambiables.",
+    "transition": "La ciudad del comercio convive con otra gran empresa medieval: levantar una catedral.",
+    "sources": [
+      [
+        "Ayuntamiento · Plaza Mayor",
+        "https://contenidos.plasencia.es/plaza-mayor/"
+      ]
+    ],
+    "archives": [
+      [
+        "Plaza Mayor, hacia 1928",
+        "https://plasencia.datalib.es/index.php/plasencia-plaza-mayor",
+        "POS_0001 · Hauser y Menet / Papelerías Hontiveros."
+      ],
+      [
+        "Soportales del número 6, hacia 1935–1950",
+        "https://archivo.plasencia.es/index.php/plaza-mayor-plasencia",
+        "LMMP_FOT_02 · Colección Manuel Muñoz Palomino; no equivale a autoría fotográfica."
+      ]
+    ]
+  },
+  {
+    "id": "catedral",
+    "name": "Las catedrales",
+    "era": "Siglo XIII · Catedral Nueva desde 1498",
+    "shortEra": "XIII / 1498",
+    "date": "1498",
+    "verb": "Construir",
+    "title": "Dos catedrales. Una historia inacabada.",
+    "brief": "La Catedral Vieja nació en el siglo XIII, entre el románico y el gótico. En 1498 comenzó un nuevo templo que transformó el anterior. La obra quedó incompleta y hoy los dos proyectos conviven.",
+    "question": "¿Por qué Plasencia conserva dos catedrales unidas?",
+    "intro": "Aquí la historia de la arquitectura se puede leer como una convivencia. Un primer templo medieval y una construcción posterior comparten el conjunto sin que uno haya borrado por completo al otro.",
+    "sections": [
+      [
+        "El primer templo",
+        "La Catedral Vieja se sitúa en el siglo XIII. Su portada, el rosetón de alabastro y el claustro pertenecen a un lenguaje de transición del románico al gótico. La antigua sala capitular, hoy Capilla de San Pablo, está coronada por la Torre del Melón."
+      ],
+      [
+        "La ambición de 1498",
+        "La Catedral Nueva comenzó en 1498 y reutilizó materiales del edificio precedente. La síntesis municipal relaciona su estado inacabado con dificultades económicas. La portada norte se vincula a Juan de Álava y Gil de Hontañón."
+      ],
+      [
+        "También se construye con oficios",
+        "El conjunto no se explica solo por sus muros. La sillería de Rodrigo Alemán y las esculturas de Gregorio Fernández en el retablo mayor muestran el trabajo especializado que acompaña a la arquitectura y prolonga su historia."
+      ]
+    ],
+    "milestones": [
+      [
+        "Siglo XIII",
+        "Construcción de la Catedral Vieja."
+      ],
+      [
+        "1498",
+        "Comienzo de la Catedral Nueva."
+      ],
+      [
+        "Dos etapas",
+        "El proyecto posterior no sustituyó por completo al anterior."
+      ]
+    ],
+    "detail": "catedral-entorno",
+    "focus": "50% 45%",
+    "note": "Las fotografías de esta selección muestran la Catedral Nueva. No representan una reconstrucción del proceso de obra ni todas las partes de la Vieja.",
+    "transition": "Junto a la autoridad religiosa, la ciudad construye su representación civil.",
+    "sources": [
+      [
+        "Ayuntamiento · Catedral Vieja",
+        "https://contenidos.plasencia.es/catedral-vieja/"
+      ],
+      [
+        "Ayuntamiento · Catedral Nueva",
+        "https://contenidos.plasencia.es/catedral-nueva/"
+      ]
+    ],
+    "archives": [
+      [
+        "Catedral. Fachada principal",
+        "https://plasencia.datalib.es/index.php/catedral-fachada-principal-plasencia",
+        "POS_0007 · Registro localizado; fecha y autor pendientes de completar."
+      ]
+    ]
+  },
+  {
+    "id": "ayuntamiento",
+    "name": "Ayuntamiento y Mayorga",
+    "era": "Siglo XVI · reformas posteriores",
+    "shortEra": "XVI",
+    "date": "1930",
+    "verb": "Gobernar",
+    "title": "El tiempo tiene un rostro.",
+    "brief": "El Ayuntamiento representa el poder civil en la Plaza Mayor. Su historia se remonta al siglo XVI, pero el edificio visible incorpora reformas posteriores. En la torre, Mayorga forma parte de la memoria popular.",
+    "question": "¿Quién representa a la ciudad y quién marca sus horas?",
+    "intro": "La fachada y el campanario cuentan dos escalas de la vida pública: la institución que gobierna y una figura que los vecinos reconocen al mirar hacia arriba.",
+    "sections": [
+      [
+        "El lugar del gobierno",
+        "La divulgación municipal vincula el Ayuntamiento al siglo XVI. Para leer su arquitectura es necesario distinguir ese origen de las reconstrucciones posteriores: no todo lo visible pertenece a la primera obra."
+      ],
+      [
+        "Mirar hacia Mayorga",
+        "El Abuelo Mayorga da una presencia reconocible al reloj y a la campana. La tradición de la figura y la pieza que se conserva hoy no deben confundirse. La cronología precisa de sus sustituciones sigue pendiente de contraste archivístico."
+      ],
+      [
+        "Un acróbata en el campanario",
+        "El 30 de junio de 1930, el acróbata Massa fue fotografiado en la torre. Así lo identifica el catálogo del Archivo Municipal, que remite a una publicación sobre la memoria de Plasencia. El episodio permite acercarse al edificio desde una historia humana concreta."
+      ]
+    ],
+    "milestones": [
+      [
+        "Siglo XVI",
+        "Origen del edificio municipal según la divulgación local."
+      ],
+      [
+        "30 · VI · 1930",
+        "Episodio de Massa identificado por el Archivo Municipal."
+      ],
+      [
+        "Siglo XX",
+        "Reformas del edificio y sustituciones de la figura; detalle pendiente de contraste."
+      ]
+    ],
+    "detail": "mayorga",
+    "focus": "50% 50%",
+    "note": "No se fija como definitiva la datación del Mayorga actual ni el alcance de cada reconstrucción del consistorio.",
+    "transition": "La vida de una ciudad también depende de algo menos visible: la llegada del agua.",
+    "sources": [
+      [
+        "Ayuntamiento · Plaza Mayor y consistorio",
+        "https://contenidos.plasencia.es/plaza-mayor/"
+      ]
+    ],
+    "archives": [
+      [
+        "Massa en el campanario · 30 de junio de 1930",
+        "https://plasencia.datalib.es/index.php/acrobata-en-la-torre-campanario-del-ayuntamiento-plasencia",
+        "LMMP_FOT_33 · Colección Manuel Muñoz Palomino."
+      ]
+    ]
+  },
+  {
+    "id": "acueducto",
+    "name": "Acueducto de San Antón",
+    "era": "Mediados del siglo XVI",
+    "shortEra": "XVI",
+    "date": "XVI",
+    "verb": "Abastecer",
+    "title": "El agua dibuja el horizonte.",
+    "brief": "La arquería de San Antón formó parte del abastecimiento desde las sierras de Cabezabellosa y El Torno. La ficha municipal sitúa esta obra de piedra a mediados del XVI: su apariencia no la convierte en romana.",
+    "question": "¿Cómo llegaba el agua antes de las redes modernas?",
+    "intro": "Los arcos que vemos son una parte de un sistema mayor. Su función era sostener la conducción al atravesar un desnivel y hacer posible la llegada del agua a la ciudad.",
+    "sections": [
+      [
+        "Antes de los arcos de piedra",
+        "La información municipal menciona una conducción anterior conocida como Cañería de los Moros. La obra de piedra del siglo XVI, atribuida por esa fuente a Juan de Flandes, se explica dentro de la evolución del abastecimiento."
+      ],
+      [
+        "Una infraestructura, no solo una silueta",
+        "La captación en la sierra, la conducción y el paso elevado cumplían funciones diferentes. Las dimensiones publicadas sobre la arquería no deben confundirse con la longitud completa del recorrido del agua."
+      ],
+      [
+        "Cuando cambia el abastecimiento",
+        "El resumen de un estudio académico de 2023 sitúa la pérdida de función a comienzos del siglo XX. La infraestructura pasó a formar parte del patrimonio urbano: conservar su forma también permite recordar para qué sirvió."
+      ]
+    ],
+    "milestones": [
+      [
+        "Conducción anterior",
+        "La ficha municipal menciona la Cañería de los Moros."
+      ],
+      [
+        "Mediados del XVI",
+        "Construcción de la arquería de piedra."
+      ],
+      [
+        "Comienzos del XX",
+        "Pérdida de función según el resumen del estudio de 2023."
+      ]
+    ],
+    "detail": "acueducto",
+    "focus": "50% 50%",
+    "note": "La línea de agua animada es un recurso gráfico evocativo; no es un trazado topográfico ni una reconstrucción hidráulica.",
+    "transition": "De las infraestructuras al paseo: el siglo XX abre otro capítulo de la ciudad.",
+    "sources": [
+      [
+        "Ayuntamiento · Acueducto",
+        "https://contenidos.plasencia.es/acueducto/"
+      ],
+      [
+        "CEU · Resumen del estudio de 2023",
+        "https://investigacionusp.ceu.es/en/ipublic/item/10136386"
+      ]
+    ],
+    "archives": []
+  },
+  {
+    "id": "parque",
+    "name": "Parque de los Pinos",
+    "era": "Siglo XX · creación situada en 1937",
+    "shortEra": "XX · 1937",
+    "date": "1937",
+    "verb": "Recordar",
+    "title": "Un lugar para respirar. Y recordar.",
+    "brief": "Conocido también como Los Patos, el parque reúne estanques, aves y paseos. Su historia incluye trabajos forzados de presos de la Guerra Civil, recordados en una placa: la naturaleza convive aquí con la memoria.",
+    "question": "¿Qué historias conserva un lugar de paseo?",
+    "intro": "Los Pinos forma parte de los recuerdos cotidianos de Plasencia. Leer su historia exige atender al paisaje y también a quienes trabajaron en él en circunstancias de represión.",
+    "sections": [
+      [
+        "La formación del parque",
+        "Las síntesis locales consultadas sitúan su creación en 1937. Hay antecedentes relacionados con plantaciones y un depósito, pero sus fechas no coinciden entre las fuentes. Por eso no se presenta una secuencia cerrada de esas primeras actuaciones."
+      ],
+      [
+        "Una memoria que debe contarse",
+        "La ficha municipal recoge que algunas construcciones fueron realizadas por presos de la Guerra Civil mediante trabajos forzados. Una placa recuerda ese origen. Sin documentación adicional, no se atribuye cada elemento a trabajadores o campañas concretas."
+      ],
+      [
+        "Un patrimonio que está vivo",
+        "Árboles, estanques y aves hacen que el lugar cambie con el tiempo. La conservación del parque implica cuidar esa vida y preservar su memoria, además de mantener los edificios y caminos."
+      ]
+    ],
+    "milestones": [
+      [
+        "Primeras décadas del XX",
+        "Antecedentes de plantaciones e infraestructuras."
+      ],
+      [
+        "1937",
+        "Fecha de creación coincidente en las síntesis locales consultadas."
+      ],
+      [
+        "Memoria pública",
+        "Una placa recuerda el trabajo forzado de presos."
+      ]
+    ],
+    "detail": "parque",
+    "focus": "50% 50%",
+    "note": "1937 se mantiene como fecha de trabajo; el expediente fundacional y la cronología del depósito requieren investigación adicional.",
+    "transition": "La ciudad del presente decide cómo recordar su comienzo.",
+    "sources": [
+      [
+        "Ayuntamiento · Parque de los Pinos",
+        "https://contenidos.plasencia.es/parque-de-los-pinos/"
+      ],
+      [
+        "Plasencia Digital · Historia del parque",
+        "https://www.plasenciadigital.com/conoce-plasencia/plasencia-verde/parque-los-pinos/"
+      ]
+    ],
+    "archives": []
+  },
+  {
+    "id": "monumento",
+    "name": "Alfonso VIII y la fuente",
+    "era": "1995 · decisión municipal del monumento",
+    "shortEra": "XX · 1995",
+    "date": "1995",
+    "verb": "Conmemorar",
+    "title": "Volver al principio desde el presente.",
+    "brief": "En 1995, la ciudad decidió recordar a su fundador con un monumento ante la Puerta del Sol. La escultura de Estanislao García Olivares conecta la memoria contemporánea con Alfonso VIII y la fundación de 1186.",
+    "question": "¿Cómo elige una ciudad recordar su origen?",
+    "intro": "El rey pertenece a la historia medieval. La escultura que lo representa pertenece a una decisión contemporánea. Distinguir ambas fechas permite cerrar el viaje sin confundir al personaje con el monumento.",
+    "sections": [
+      [
+        "Un homenaje contemporáneo",
+        "El Ayuntamiento sitúa en 1995 la decisión de crear el monumento y atribuye la escultura a Estanislao García Olivares. El conjunto se encuentra ante la Puerta del Sol, no en la Plaza Mayor."
+      ],
+      [
+        "La figura y el encuentro",
+        "La ficha municipal describe la fuente a sus pies y el papel del entorno como punto de encuentro. Escultura, agua y espacio público participan de la forma en que el homenaje se incorpora a la vida de la ciudad."
+      ],
+      [
+        "El final devuelve la mirada al origen",
+        "Alfonso VIII está vinculado a la fundación de Plasencia en 1186. Terminar aquí permite mirar de nuevo la puerta y el recinto medieval desde otra época: la de una ciudad que construye su propia memoria."
+      ]
+    ],
+    "milestones": [
+      [
+        "1186",
+        "Fundación de Plasencia bajo Alfonso VIII, según la historia municipal."
+      ],
+      [
+        "1995",
+        "Decisión de crear el monumento según la ficha municipal."
+      ],
+      [
+        "2007",
+        "Fecha de la fotografía de puerta y estatua incluida en esta selección."
+      ]
+    ],
+    "detail": "puerta",
+    "focus": "60% 55%",
+    "note": "1995 no fecha automáticamente todas las piezas de la fuente. Su autoría y reformas quedan pendientes; no se ha inventado una fotografía específica de los chorros.",
+    "transition": "La historia continúa fuera de la pantalla.",
+    "sources": [
+      [
+        "Ayuntamiento · Estatua ecuestre",
+        "https://contenidos.plasencia.es/alfonso-viii-estatua-ecuestre/"
+      ],
+      [
+        "Ayuntamiento · Historia de Plasencia",
+        "https://contenidos.plasencia.es/historia/"
+      ]
+    ],
+    "archives": []
+  }
+]

@@ -1,0 +1,220 @@
+[
+  {
+    "id": "puerta",
+    "src": "assets/historia/puerta.jpg",
+    "title": "Puerta_del_sol_de_Plasencia_2019An001.jpg",
+    "author": "Anual",
+    "date": "2019",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Puerta_del_sol_de_Plasencia_2019An001.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/2/22/Puerta_del_sol_de_Plasencia_2019An001.jpg",
+    "originalDimensions": [
+      4000,
+      6000
+    ],
+    "dimensions": [
+      1467,
+      2200
+    ],
+    "changes": "Reducción de resolución y compresión JPEG; encuadre visual mediante CSS. Sin reconstrucción generativa.",
+    "alt": "Puerta del Sol de Plasencia, vista exterior en 2019"
+  },
+  {
+    "id": "muralla",
+    "src": "assets/historia/muralla.jpg",
+    "title": "20220905_083145_Torre_Lucía_Plasencia.jpg",
+    "author": "FLAVIVSAETIVS",
+    "date": "2022",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:20220905_083145_Torre_Luc%C3%ADa_Plasencia.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/20220905_083145_Torre_Luc%C3%ADa_Plasencia.jpg/1280px-20220905_083145_Torre_Luc%C3%ADa_Plasencia.jpg",
+    "dimensions": [
+      1280,
+      960
+    ],
+    "changes": "Reducción de resolución y compresión JPEG; encuadre visual mediante CSS. Sin reconstrucción generativa.",
+    "alt": "Torre Lucía y recinto amurallado de Plasencia, 2022",
+    "downloadNote": "Descarga de versión de 1280 píxeles ofrecida por Wikimedia; dimensiones del archivo descargado, no del original de la ficha."
+  },
+  {
+    "id": "plaza",
+    "src": "assets/historia/plaza.jpg",
+    "title": "Plaza_mayor_de_Plasencia_2019An002.jpg",
+    "author": "Anual",
+    "date": "2019",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Plaza_mayor_de_Plasencia_2019An002.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Plaza_mayor_de_Plasencia_2019An002.jpg",
+    "originalDimensions": [
+      6000,
+      4000
+    ],
+    "dimensions": [
+      2200,
+      1467
+    ],
+    "changes": "Reducción de resolución y compresión JPEG; encuadre visual mediante CSS. Sin reconstrucción generativa.",
+    "alt": "Plaza Mayor de Plasencia, vista general en 2019"
+  },
+  {
+    "id": "ayuntamiento",
+    "src": "assets/historia/ayuntamiento.jpg",
+    "title": "Ayuntamiento_de_Plasencia_2009.jpg",
+    "author": "Axel Cotón Gutiérrez",
+    "date": "2009",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Ayuntamiento_de_Plasencia_2009.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Ayuntamiento_de_Plasencia_2009.jpg",
+    "originalDimensions": [
+      3264,
+      2448
+    ],
+    "dimensions": [
+      2200,
+      1650
+    ],
+    "changes": "Reducción de resolución y compresión JPEG; encuadre visual mediante CSS. Sin reconstrucción generativa.",
+    "alt": "Fachada del Ayuntamiento de Plasencia, 2009"
+  },
+  {
+    "id": "mayorga",
+    "src": "assets/historia/mayorga.jpg",
+    "title": "Abuelo_Mayorga_(Plasencia).jpg",
+    "author": "Axel Cotón Gutiérrez",
+    "date": "2009",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Abuelo_Mayorga_%28Plasencia%29.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Abuelo_Mayorga_%28Plasencia%29.jpg",
+    "originalDimensions": [
+      2448,
+      3264
+    ],
+    "dimensions": [
+      1650,
+      2200
+    ],
+    "changes": "Reducción de resolución y compresión JPEG; encuadre visual mediante CSS. Sin reconstrucción generativa.",
+    "alt": "Abuelo Mayorga, campana y torre del Ayuntamiento, 2009"
+  },
+  {
+    "id": "catedral-entorno",
+    "src": "assets/historia/catedral-entorno.jpg",
+    "title": "Catedral_Nueva,_Plasencia_06.jpg",
+    "author": "Axel Cotón Gutiérrez",
+    "date": "2015",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Catedral_Nueva%2C_Plasencia_06.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Catedral_Nueva%2C_Plasencia_06.jpg/1280px-Catedral_Nueva%2C_Plasencia_06.jpg",
+    "dimensions": [
+      1280,
+      960
+    ],
+    "changes": "Reducción de resolución y compresión JPEG; encuadre visual mediante CSS. Sin reconstrucción generativa.",
+    "alt": "Entorno exterior de la Catedral Nueva, 2015",
+    "downloadNote": "Descarga de versión de 1280 píxeles ofrecida por Wikimedia; dimensiones del archivo descargado, no del original de la ficha."
+  },
+  {
+    "id": "monumento",
+    "src": "assets/historia/monumento.jpg",
+    "title": "Puerta_del_sol_3.JPG",
+    "author": "Olarcos",
+    "date": "2007",
+    "license": "Dominio público declarado",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Puerta_del_sol_3.JPG",
+    "source": "https://commons.wikimedia.org/wiki/File:Puerta_del_sol_3.JPG",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Puerta_del_sol_3.JPG",
+    "originalDimensions": [
+      3072,
+      2304
+    ],
+    "dimensions": [
+      2200,
+      1650
+    ],
+    "changes": "Reducción de resolución y compresión JPEG; encuadre visual mediante CSS. Sin reconstrucción generativa.",
+    "alt": "Estatua ecuestre de Alfonso VIII ante la Puerta del Sol, 2007"
+  },
+  {
+    "id": "muralla-detalle",
+    "src": "assets/historia/muralla-detalle.jpg",
+    "title": "Murallas_plasencia.JPG",
+    "author": "Jörn Wendland",
+    "date": "Fecha no resuelta (ficha 2007 / EXIF 2005)",
+    "license": "Dominio público declarado",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Murallas_plasencia.JPG",
+    "source": "https://commons.wikimedia.org/wiki/File:Murallas_plasencia.JPG",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Murallas_plasencia.JPG/1280px-Murallas_plasencia.JPG",
+    "dimensions": [
+      1280,
+      960
+    ],
+    "changes": "Reducción de resolución y compresión JPEG; encuadre visual mediante CSS. Sin reconstrucción generativa.",
+    "alt": "Tramo de muralla y torreones junto a la ciudad",
+    "downloadNote": "Descarga de versión de 1280 píxeles ofrecida por Wikimedia; dimensiones del archivo descargado, no del original de la ficha."
+  },
+  {
+    "id": "catedral",
+    "src": "assets/historia/catedral.jpg",
+    "title": "Catedral Nueva de Plasencia sobre el caserío",
+    "author": "Jose Antonio Cotallo López",
+    "date": "2007",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Catedral_de_Plasencia-02.jpg",
+    "original": "https://commons.wikimedia.org/wiki/File:Catedral_de_Plasencia-02.jpg",
+    "dimensions": [
+      2048,
+      1181
+    ],
+    "changes": "Reducción de resolución y compresión JPEG; encuadre visual mediante CSS. Sin reconstrucción generativa.",
+    "alt": "Catedral Nueva de Plasencia sobre el caserío"
+  },
+  {
+    "id": "acueducto",
+    "src": "assets/historia/acueducto.jpg",
+    "title": "Arquería del acueducto de San Antón",
+    "author": "Jörn Wendland",
+    "date": "Fecha no resuelta: ficha 2007 / EXIF 2005",
+    "license": "Dominio público declarado",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Acueducto_plasencia.JPG",
+    "source": "https://commons.wikimedia.org/wiki/File:Acueducto_plasencia.JPG",
+    "original": "https://commons.wikimedia.org/wiki/File:Acueducto_plasencia.JPG",
+    "originalDimensions": [
+      2560,
+      1920
+    ],
+    "dimensions": [
+      2200,
+      1650
+    ],
+    "changes": "Reducción de resolución y compresión JPEG; encuadre visual mediante CSS. Sin reconstrucción generativa.",
+    "alt": "Arquería del acueducto de San Antón"
+  },
+  {
+    "id": "parque",
+    "src": "assets/historia/parque.jpg",
+    "title": "Estanque, construcción ornamental y vegetación en Los Pinos",
+    "author": "Better",
+    "date": "2007",
+    "license": "Dominio público declarado",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Los_Pinos.JPG",
+    "source": "https://commons.wikimedia.org/wiki/File:Los_Pinos.JPG",
+    "original": "https://commons.wikimedia.org/wiki/File:Los_Pinos.JPG",
+    "originalDimensions": [
+      2976,
+      2232
+    ],
+    "dimensions": [
+      2200,
+      1650
+    ],
+    "changes": "Reducción de resolución y compresión JPEG; encuadre visual mediante CSS. Sin reconstrucción generativa.",
+    "alt": "Estanque, construcción ornamental y vegetación en Los Pinos"
+  }
+]
