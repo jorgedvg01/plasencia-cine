@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Reescritura integral de la historia de Plasencia mediante capas, umbrales, ascensos y pausas.">
-  <title>Reescritura integral · Plasencia</title>
+  <meta name="description" content="Un recorrido cinematográfico por ocho lugares de la historia de Plasencia.">
+  <title>Plasencia · Historia viva</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/f9.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="css/fonts.css">
@@ -17,29 +17,35 @@
 </head>
 <body class="model-page rewrite-page is-static" data-model="reescritura">
   <a class="skip-link" href="#story-root">Saltar al recorrido</a>
-  <header class="site-header">
-    <a class="brand" href="#inicio" aria-label="Ir al inicio del recorrido"><span>PLASENCIA</span><small>Archivo de una ciudad</small></a>
-    <p class="edition-label">REESCRITURA INTEGRAL</p>
+
+  <header class="site-header cinema-header">
+    <a class="brand" href="#inicio" aria-label="Ir al inicio"><span>PLASENCIA</span><small>Historia viva</small></a>
+    <p class="edition-label">PIEDRA · AGUA · TIEMPO</p>
     <div class="header-actions">
       <button class="text-button" id="motion-toggle" type="button" aria-pressed="false">Modo lectura</button>
       <button class="text-button" id="chapters-open" type="button">Capítulos <span aria-hidden="true">＋</span></button>
     </div>
   </header>
+
   <main>
-    <section class="prologue prologue-rewrite" id="inicio" aria-labelledby="cover-title">
-      <div class="prologue-copy">
-        <p class="eyebrow">PLASENCIA · PIEDRA, AGUA, TIEMPO</p>
-        <h1 id="cover-title">La ciudad escrita <em>en capas.</em></h1>
-        <p>No existe un solo rumbo. Cada capítulo abre su propia arquitectura: atravesar, ascender, expandirse, detenerse o mirar de cerca.</p>
-        <a class="enter-link" href="#muralla">Abrir la primera capa <span aria-hidden="true">↓</span></a>
+    <section class="cinema-hero" id="inicio" aria-labelledby="cover-title">
+      <div class="cinema-hero-frame">
+        <figure class="cinema-hero-image" aria-hidden="true">
+          <img src="assets/base-4k.png" alt="" width="3840" height="2160" fetchpriority="high">
+        </figure>
+        <div class="cinema-hero-shade" aria-hidden="true"></div>
+        <div class="cinema-hero-copy">
+          <p class="cinema-kicker">PLASENCIA · EXTREMADURA</p>
+          <h1 id="cover-title"><span>La ciudad</span><em>escrita en capas.</em></h1>
+          <p class="cinema-hero-deck">Ocho lugares. Ocho formas de mirar una ciudad que nunca terminó de escribirse.</p>
+        </div>
+        <div class="cinema-hero-index" aria-hidden="true"><span>1186</span><i></i><span>HOY</span></div>
+        <a class="cinema-enter" href="#muralla"><span>Comenzar el viaje</span><b aria-hidden="true">↓</b></a>
+        <p class="cinema-scroll-note" aria-hidden="true">SCROLL PARA ATRAVESAR LA HISTORIA</p>
       </div>
-      <figure class="master-image">
-        <img src="assets/base-4k.png" alt="Composición artística maestra con monumentos de Plasencia" width="3840" height="2160" fetchpriority="high">
-        <figcaption>Composición artística maestra · presentación del conjunto</figcaption>
-      </figure>
-      <div class="rewrite-rule" aria-hidden="true"></div>
     </section>
-    <div id="story-root" class="story-root" aria-live="polite"><p class="loading-copy">Leyendo las capas…</p></div>
+
+    <div id="story-root" class="story-root" aria-live="polite"><p class="loading-copy">Preparando el recorrido…</p></div>
   </main>
 </body>
 </html>
