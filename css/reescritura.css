@@ -1,128 +1,230 @@
 .rewrite-page{--accent:#d08750;background:#0f1512}
-.prologue-rewrite{background:#101814}
+.rewrite-page .prologue-rewrite{background:#101814}
 .rewrite-rule{position:absolute;right:12%;top:8%;bottom:8%;width:1px;background:linear-gradient(transparent,rgba(255,255,255,.48),transparent);transform:rotate(13deg)}
 .rewrite-sequence{background:#111713}
 .rewrite-chapter{position:relative;min-height:175svh;background:var(--chapter-paper);color:var(--chapter-ink)}
 .rewrite-chapter:nth-child(4),.rewrite-chapter:nth-child(7){min-height:195svh}
-.rewrite-stage{position:sticky;top:0;height:100svh;display:grid;padding:calc(var(--header-h) + 1.4rem) var(--gutter) 2.9rem;overflow:hidden;isolation:isolate}
-.rewrite-stage .chapter-heading{position:relative;z-index:5}
-.rewrite-stage .chapter-title{font-size:clamp(3.4rem,6.3vw,7rem);margin:.25rem 0 1rem;max-width:57rem}
-.rewrite-stage .chapter-question{font-family:"Bodoni Moda",serif;font-size:clamp(1.12rem,1.55vw,1.55rem);line-height:1.35}
-.rewrite-stage .chapter-brief{font-size:clamp(.88rem,1vw,1rem);line-height:1.58}
-.rewrite-stage .fact p{font-size:clamp(.7rem,.78vw,.82rem);line-height:1.42}
-.rewrite-actions{display:flex;justify-content:space-between;align-items:flex-start;gap:1.5rem}
-.rewrite-actions .source-links{justify-content:flex-end;max-width:28rem;text-align:right}
-.rewrite-stage .chapter-transition{margin:0;font-size:clamp(1.12rem,1.5vw,1.55rem)}
 
-.rewrite-muralla .rewrite-stage{grid-template-columns:.72fr 1.28fr;grid-template-rows:auto 1fr auto;gap:1rem 4rem}
-.rewrite-muralla .chapter-heading{grid-column:1;grid-row:1/3;align-self:start;padding-top:4rem}
-.rewrite-muralla .chapter-title{font-weight:600}
-.wall-cut{grid-column:2;grid-row:1/3;align-self:center;height:min(52vh,32rem)}
-.wall-cut .chapter-photo{height:100%;margin:0}.wall-cut .photo-button{height:100%;clip-path:polygon(0 8%,96% 0,100% 91%,8% 100%)}
-.rewrite-muralla .rewrite-detail{grid-column:2;grid-row:2;align-self:end;width:37%;height:min(24vh,14rem);margin:0 0 -1rem -7%;z-index:4;box-shadow:0 1.2rem 3rem rgba(0,0,0,.22)}.rewrite-muralla .rewrite-detail .photo-button{height:100%}
-.rewrite-muralla .primary-copy{position:absolute;left:var(--gutter);bottom:11rem;width:30vw}
-.rewrite-muralla .rewrite-facts{position:absolute;right:var(--gutter);bottom:3rem;width:52vw}.rewrite-muralla .facts{grid-template-columns:repeat(3,1fr)}
-.rewrite-muralla .rewrite-actions{position:absolute;left:var(--gutter);bottom:3rem;width:30vw;display:grid}.rewrite-muralla .rewrite-actions .source-links{text-align:left;justify-content:flex-start}
-.rewrite-muralla .chapter-transition{position:absolute;right:var(--gutter);top:17%;width:22rem}
-.wall-strata{position:absolute;inset:0;display:grid;grid-template-rows:repeat(5,1fr);z-index:-1;opacity:.16}.wall-strata i{border-bottom:1px solid currentColor;background:repeating-linear-gradient(90deg,currentColor 0 8%,transparent 8% 12%)}
-.perimeter-score{position:absolute;left:35%;right:4%;top:16%;display:grid;grid-template-columns:auto 1fr auto 1fr auto;align-items:center;gap:.8rem;font-size:.62rem;font-weight:600;letter-spacing:.13em}.perimeter-score i{height:.3rem;background:repeating-linear-gradient(90deg,currentColor 0 1rem,transparent 1rem 1.4rem)}
-.strata-breach{position:absolute;left:var(--gutter);right:var(--gutter);bottom:.7rem;height:1.5rem;background:repeating-linear-gradient(90deg,currentColor 0 13.5%,transparent 13.5% 15.5%,currentColor 15.5% 30%,transparent 30% 32%,currentColor 32% 46%,transparent 46% 48%,currentColor 48% 62%,transparent 62% 64%,currentColor 64% 100%);opacity:.16;pointer-events:none}
-.strata-breach span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);padding:.1rem .5rem;background:var(--chapter-paper);font-size:.56rem;font-weight:600;letter-spacing:.16em;white-space:nowrap}
+/* Prototipo Hero -> Muralla: composición continua */
+.rewrite-page.is-animated .prologue-rewrite{
+  min-height:100svh;
+  display:grid;
+  grid-template-columns:minmax(18rem,.78fr) minmax(0,1.22fr);
+  align-items:center;
+  gap:clamp(2rem,5vw,7rem);
+  padding:calc(var(--header-h) + 3rem) var(--gutter) 4rem;
+  overflow:hidden;
+  isolation:isolate;
+}
+.rewrite-page.is-animated .prologue-copy{
+  position:relative;
+  z-index:3;
+  max-width:39rem;
+  transition:transform .01ms;
+}
+.rewrite-page.is-animated .prologue-copy .eyebrow{margin-bottom:1rem;font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+.rewrite-page.is-animated .prologue-copy h1{
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(3.9rem,8.3vw,8.8rem);
+  font-weight:500;
+  line-height:.78;
+  letter-spacing:-.055em;
+  margin-bottom:2.2rem;
+}
+.rewrite-page.is-animated .prologue-copy h1 em{font-family:"Bodoni Moda",serif;font-weight:500;color:#e2b169}
+.rewrite-page.is-animated .prologue-copy>p:not(.eyebrow){max-width:34rem;font-size:clamp(1rem,1.45vw,1.25rem);color:rgba(255,255,255,.78)}
+.rewrite-page.is-animated .enter-link{display:inline-flex;align-items:center;gap:1.25rem;margin-top:1.35rem;text-decoration:none;font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.rewrite-page.is-animated .enter-link span{display:grid;place-items:center;width:2.7rem;height:2.7rem;border:1px solid rgba(255,255,255,.55);border-radius:50%;transition:transform .25s,background .25s}
+.rewrite-page.is-animated .enter-link:hover span{transform:translateY(.3rem);background:#fff;color:#111}
 
-.rewrite-puerta .rewrite-stage{grid-template-columns:.8fr .72fr .8fr;grid-template-rows:auto 1fr auto;gap:1rem 3rem;background:radial-gradient(circle at 50% 50%,rgba(226,180,106,.16),transparent 26%)}
-.door-depth{grid-column:2;grid-row:1/4;height:calc(100svh - 5.5rem);z-index:2;clip-path:inset(0 0 0 round 50% 50% 0 0)}.door-depth .chapter-photo{height:100%;margin:0}.door-depth .photo-button{height:100%}
-.rewrite-puerta .chapter-heading{grid-column:1;grid-row:1/3;align-self:center;text-align:right}.rewrite-puerta .chapter-title{font-style:italic}
-.rewrite-puerta .primary-copy{grid-column:3;grid-row:1;align-self:end}
-.door-archive{grid-column:3;grid-row:2;align-self:start;padding:1rem;border-left:.35rem solid #dca765}.door-archive strong{font-family:"Bodoni Moda",serif;font-size:2rem}.door-archive p{font-size:.75rem}
-.rewrite-puerta .rewrite-facts{grid-column:3;grid-row:2;align-self:end}.rewrite-puerta .facts{gap:.55rem}.rewrite-puerta .fact p{font-size:.7rem}
-.rewrite-puerta .rewrite-actions{grid-column:1;grid-row:3;display:grid}.rewrite-puerta .rewrite-actions .source-links{justify-content:flex-start;text-align:left}.rewrite-puerta .chapter-transition{grid-column:3;grid-row:3;text-align:right}
-.tunnel-planes{position:absolute;inset:5% 27%;pointer-events:none}.tunnel-planes i{position:absolute;inset:calc(var(--i,0)*1.3rem);border:1px solid rgba(244,235,219,.28);border-radius:50% 50% 0 0/25% 25% 0 0}.tunnel-planes i:nth-child(2){--i:1}.tunnel-planes i:nth-child(3){--i:2}
-.door-light{position:absolute;left:50%;top:50%;width:26rem;height:26rem;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(255,244,214,.85),rgba(255,244,214,0) 62%);filter:blur(6px);pointer-events:none;z-index:3}
-.door-emerge{position:absolute;left:var(--gutter);right:var(--gutter);bottom:.7rem;display:grid;place-items:center;height:1.6rem;border-top:1px solid rgba(240,232,217,.5);border-bottom:1px solid rgba(240,232,217,.5);pointer-events:none}
-.door-emerge span{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(.95rem,1.3vw,1.3rem);color:#f0e8d9}
-.threshold-sides{position:absolute;left:5%;right:5%;top:50%;display:flex;justify-content:space-between;font-size:.58rem;letter-spacing:.19em;pointer-events:none}
+.rewrite-page.is-animated .master-image{
+  position:relative;
+  margin:0;
+  align-self:stretch;
+  min-height:36rem;
+  display:grid;
+  align-items:center;
+}
+.rewrite-page.is-animated .master-image::before{content:"";position:absolute;inset:9% -3% 6% 7%;border:1px solid rgba(255,255,255,.22);transform:rotate(1.4deg)}
+.rewrite-page.is-animated .master-image img{
+  position:relative;
+  width:100%;
+  height:min(73vh,54rem);
+  object-fit:cover;
+  object-position:center;
+  border-radius:.25rem;
+  box-shadow:0 2.5rem 8rem rgba(0,0,0,.42);
+  will-change:transform;
+}
+.rewrite-page.is-animated .master-image figcaption{position:absolute;right:1rem;bottom:1.1rem;padding:.45rem .68rem;background:rgba(9,13,12,.72);font-size:.67rem;letter-spacing:.08em;text-transform:uppercase}
 
-.rewrite-plaza .rewrite-stage{grid-template-columns:repeat(12,1fr);grid-template-rows:auto 1fr auto;gap:.8rem 1.4rem;background:radial-gradient(circle at 51% 53%,rgba(255,255,255,.52),transparent 31%)}
-.rewrite-plaza .chapter-heading{grid-column:1/8}.rewrite-plaza .chapter-title{font-family:"Bodoni Moda",serif}
-.plaza-opening{grid-column:4/10;grid-row:2;align-self:center;height:min(47vh,29rem)}.plaza-opening .chapter-photo{height:100%;margin:0}.plaza-opening .photo-button{height:100%}
-.rewrite-plaza .primary-copy{grid-column:1/4;grid-row:2;align-self:center}
-.plaza-focus{position:absolute;width:18rem;padding:.8rem;border-top:1px solid currentColor;background:color-mix(in srgb,var(--chapter-paper) 90%,transparent)}.plaza-focus strong{font-family:"Cormorant Garamond",serif;font-size:1.2rem}.plaza-focus p{margin:.3rem 0 0;font-size:.7rem;line-height:1.4}.focus-a{right:3%;top:26%}.focus-b{right:5%;top:55%}.focus-c{left:4%;bottom:15%}
-.plaza-orbit{position:absolute;inset:13% 4%;pointer-events:none}.plaza-orbit span{position:absolute;font-family:"Cormorant Garamond",serif;font-size:clamp(1.3rem,2.1vw,2.2rem);font-style:italic}.plaza-orbit span:nth-child(1){left:2%;top:9%}.plaza-orbit span:nth-child(2){right:4%;top:7%}.plaza-orbit span:nth-child(3){right:1%;bottom:4%}.plaza-orbit span:nth-child(4){left:8%;bottom:1%}
-.plaza-precision{grid-column:10/-1;grid-row:1;font-size:.68rem;line-height:1.5;border-left:.3rem solid currentColor;padding-left:.8rem}
-.rewrite-plaza .rewrite-actions{grid-column:1/8;grid-row:3}.rewrite-plaza .chapter-transition{grid-column:8/-1;grid-row:3;text-align:right}
+.rewrite-page.is-animated .prologue-rewrite::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:radial-gradient(circle at 18% 46%,rgba(205,151,79,.18),transparent 32%),linear-gradient(115deg,rgba(8,15,12,.06),rgba(8,15,12,.6));
+}
 
-.rewrite-catedral .rewrite-stage{grid-template-columns:.66fr 1.34fr;grid-template-rows:auto 1fr auto;gap:1rem 4rem;background:radial-gradient(ellipse at 68% 0,rgba(255,255,255,.95),transparent 43%)}
-.rewrite-catedral .chapter-heading{grid-column:1;grid-row:1/3;align-self:center;text-align:right}.rewrite-catedral .chapter-title{font-size:clamp(4rem,7vw,7.7rem)}
-.cathedral-rise{position:relative;grid-column:2;grid-row:1/3;align-self:end}.cathedral-rise>span{position:absolute;z-index:4;top:.7rem;left:.7rem;padding:.35rem .55rem;background:rgba(12,18,16,.75);color:#fff;font-size:.6rem;letter-spacing:.14em}.cathedral-rise .chapter-photo{height:100%;margin:0}.cathedral-rise .photo-button{height:100%}
-.old-layer{width:38%;height:43%;z-index:3;transform:translateX(-15%);box-shadow:0 1.2rem 3rem rgba(0,0,0,.16)}
-.new-layer{height:78%;margin-left:15%;z-index:2}.new-layer .photo-button{clip-path:polygon(0 12%,45% 12%,50% 0,55% 12%,100% 12%,100% 100%,0 100%)}
-.rewrite-catedral .primary-copy{position:absolute;left:var(--gutter);bottom:10rem;width:29vw}
-.rewrite-catedral .rewrite-facts{position:absolute;right:var(--gutter);bottom:2.5rem;width:52vw}.rewrite-catedral .facts{grid-template-columns:repeat(3,1fr)}
-.cathedral-precision{position:absolute;right:var(--gutter);top:19%;width:23rem;font-size:.68rem;border-left:.3rem solid currentColor;padding-left:.8rem}
-.rewrite-catedral .rewrite-actions{position:absolute;left:var(--gutter);bottom:2.5rem;width:29vw;display:grid}.rewrite-catedral .rewrite-actions .source-links{justify-content:flex-start;text-align:left}.rewrite-catedral .chapter-transition{position:absolute;right:var(--gutter);top:10%;width:24rem;text-align:right}
-.cathedral-light{position:absolute;left:58%;top:-20%;width:21rem;height:120%;background:linear-gradient(180deg,rgba(255,255,255,.75),rgba(241,209,143,.12),transparent);filter:blur(18px);transform:skewX(-10deg);pointer-events:none}
+/* Capa de supervivencia del Hero durante la transición */
+.rewrite-page.is-animated .hero-survivor{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  overflow:hidden;
+}
+.rewrite-page.is-animated .hero-survivor img{
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  will-change:transform;
+}
+.rewrite-page.is-animated .hero-survivor::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(115deg,rgba(16,24,20,.55),rgba(16,24,20,.18) 60%,transparent);
+  pointer-events:none;
+}
 
-.rewrite-ayuntamiento .rewrite-stage{grid-template-columns:repeat(12,1fr);grid-template-rows:auto 1fr auto;gap:1rem 1.5rem}
-.rewrite-ayuntamiento .chapter-heading{grid-column:1/8}.rewrite-ayuntamiento .chapter-title{font-family:"Manrope",sans-serif;font-weight:600;letter-spacing:-.07em}
-.civic-facade{grid-column:1/8;grid-row:2;height:min(46vh,29rem)}.civic-facade .chapter-photo,.civic-facade .photo-button{height:100%;margin:0}
-.mayorga-portrait{grid-column:8/10;grid-row:2;align-self:end;height:min(37vh,22rem);z-index:3}.mayorga-portrait .chapter-photo,.mayorga-portrait .photo-button{height:100%;margin:0}
-.rewrite-ayuntamiento .primary-copy{grid-column:10/-1;grid-row:2;align-self:start}
-.civic-beats{grid-column:10/-1;grid-row:2;align-self:end}.civic-beats .facts{gap:.5rem}.civic-beats .fact p{font-size:.68rem}
-.rewrite-ayuntamiento .rewrite-actions{grid-column:1/8;grid-row:3}.rewrite-ayuntamiento .chapter-transition{grid-column:8/-1;grid-row:3;text-align:right}
-.mayorga-dial{position:absolute;right:4%;top:5%;width:28rem;aspect-ratio:1;border:1px solid rgba(240,233,220,.4);border-radius:50%;pointer-events:none}.mayorga-dial::before,.mayorga-dial::after{content:"";position:absolute;left:50%;bottom:50%;width:1px;background:currentColor;transform-origin:bottom}.mayorga-dial::before{height:40%;transform:rotate(17deg)}.mayorga-dial::after{height:26%;transform:rotate(110deg)}.mayorga-dial i{position:absolute;inset:1rem;border:1px dashed currentColor;border-radius:50%;opacity:.45}.mayorga-dial span{position:absolute;right:1rem;bottom:2rem;font-family:"Bodoni Moda",serif;font-size:2rem}
+/* Contenedor de transición Hero -> Muralla */
+.rewrite-page.is-animated .hero-transition{
+  position:absolute;
+  inset:0;
+  z-index:4;
+  pointer-events:none;
+  overflow:hidden;
+}
+.rewrite-page.is-animated .hero-transition .hero-fade{
+  position:absolute;
+  inset:0;
+  background:#101814;
+  opacity:0;
+  will-change:opacity;
+}
 
-.rewrite-acueducto .rewrite-stage{grid-template-columns:.7fr 1.3fr;grid-template-rows:auto 1fr auto;gap:1rem 4rem;background-image:linear-gradient(rgba(36,71,77,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(36,71,77,.08) 1px,transparent 1px);background-size:2.5rem 2.5rem}
-.rewrite-acueducto .chapter-heading{grid-column:1/-1}.rewrite-acueducto .chapter-title{font-family:"Manrope",sans-serif;font-weight:500;letter-spacing:-.065em}
-.water-window{grid-column:2;grid-row:2;height:min(48vh,30rem);align-self:center}.water-window .chapter-photo,.water-window .photo-button{height:100%;margin:0}.water-window .photo-button{clip-path:polygon(0 11%,100% 0,100% 89%,0 100%)}
-.rewrite-acueducto .primary-copy{grid-column:1;grid-row:2;align-self:start}
-.hydraulic-notes{grid-column:1;grid-row:2;align-self:end;display:grid;gap:.55rem}.hydraulic-notes section{display:grid;grid-template-columns:1.5rem 1fr;gap:.25rem .7rem;border-top:1px solid currentColor;padding-top:.45rem}.hydraulic-notes b{grid-row:1/3;font-size:.6rem}.hydraulic-notes h3{font-family:"Manrope",sans-serif;font-size:.88rem;margin:0}.hydraulic-notes p{font-size:.67rem;line-height:1.4;margin:0}
-.aqueduct-diagonal{position:absolute;inset:10% -3% auto;width:106%;height:69%;pointer-events:none}.aqueduct-diagonal path{fill:none;stroke:#2b6870;stroke-width:4;vector-effect:non-scaling-stroke}
-.water-stations{position:absolute;left:39%;right:4%;top:55%;display:flex;justify-content:space-between;font-size:.6rem;font-weight:600;letter-spacing:.14em}
-.technical-precision{position:absolute;right:var(--gutter);top:20%;width:22rem;font-size:.66rem;border-left:.3rem solid currentColor;padding-left:.8rem}
-.rewrite-acueducto .rewrite-actions{grid-column:1;grid-row:3;display:grid}.rewrite-acueducto .rewrite-actions .source-links{justify-content:flex-start;text-align:left}.rewrite-acueducto .chapter-transition{grid-column:2;grid-row:3;text-align:right}
+/* Muralla como segundo estado del viaje */
+.rewrite-muralla.chapter-shell{
+  position:relative;
+  min-height:100svh;
+  background:var(--chapter-paper);
+  color:var(--chapter-ink);
+}
+.rewrite-muralla.chapter-shell .rewrite-stage{
+  position:sticky;
+  top:0;
+  height:100svh;
+  display:grid;
+  padding:calc(var(--header-h) + 1.4rem) var(--gutter) 2.9rem;
+  overflow:hidden;
+  isolation:isolate;
+}
+.rewrite-muralla.chapter-shell .chapter-heading{position:relative;z-index:6}
+.rewrite-muralla.chapter-shell .chapter-title{font-size:clamp(3.4rem,6.3vw,7rem);margin:.25rem 0 1rem;max-width:57rem;font-weight:600}
+.rewrite-muralla.chapter-shell .chapter-question{font-family:"Bodoni Moda",serif;font-size:clamp(1.12rem,1.55vw,1.55rem);line-height:1.35}
+.rewrite-muralla.chapter-shell .chapter-brief{font-size:clamp(.88rem,1vw,1rem);line-height:1.58}
+.rewrite-muralla.chapter-shell .fact p{font-size:clamp(.7rem,.78vw,.82rem);line-height:1.42}
+.rewrite-muralla.chapter-shell .rewrite-actions{display:flex;justify-content:space-between;align-items:flex-start;gap:1.5rem}
+.rewrite-muralla.chapter-shell .rewrite-actions .source-links{justify-content:flex-end;max-width:28rem;text-align:right}
+.rewrite-muralla.chapter-shell .chapter-transition{margin:0;font-size:clamp(1.12rem,1.5vw,1.55rem)}
 
-.rewrite-parque .rewrite-stage{grid-template-columns:1.25fr .75fr;grid-template-rows:auto 1fr auto;gap:1rem 5rem;background:radial-gradient(circle at 25% 47%,rgba(255,255,255,.91),transparent 38%)}
-.rewrite-parque .chapter-heading{grid-column:1/-1}.rewrite-parque .chapter-title{font-weight:400;color:#315943}
-.quiet-photo{grid-column:1;grid-row:2;height:min(48vh,30rem)}.quiet-photo .chapter-photo,.quiet-photo .photo-button{height:100%;margin:0}.quiet-photo .photo-button{border-radius:50% 50% 1rem 1rem/28% 28% 1rem 1rem}
-.rewrite-parque .primary-copy{grid-column:2;grid-row:2;align-self:start}
-.memory-margin{grid-column:2;grid-row:2;align-self:center;padding:1rem;border-left:.35rem solid #87483b}.memory-margin strong{display:block;font-family:"Cormorant Garamond",serif;font-size:1.55rem;line-height:1.1}.memory-margin p:last-child{font-size:.73rem}
-.quiet-copy{grid-column:2;grid-row:2;align-self:end}.quiet-copy .facts{gap:.45rem}.quiet-copy .fact p{font-size:.66rem}
-.rewrite-parque .rewrite-actions{grid-column:1;grid-row:3}.rewrite-parque .chapter-transition{grid-column:2;grid-row:3;text-align:right}
-.park-breath{position:absolute;right:2%;top:1%;width:40rem;aspect-ratio:1;pointer-events:none}.park-breath i{position:absolute;inset:calc(var(--i,0)*4rem);border:1px solid rgba(41,72,58,.3);border-radius:50%}.park-breath i:nth-child(2){--i:1}.park-breath i:nth-child(3){--i:2}
+.rewrite-muralla.chapter-shell .rewrite-stage{grid-template-columns:.72fr 1.28fr;grid-template-rows:auto 1fr auto;gap:1rem 4rem}
+.rewrite-muralla.chapter-shell .chapter-heading{grid-column:1;grid-row:1/3;align-self:start;padding-top:4rem}
+.rewrite-muralla.chapter-shell .wall-cut{grid-column:2;grid-row:1/3;align-self:center;height:min(52vh,32rem)}
+.rewrite-muralla.chapter-shell .wall-cut .chapter-photo{height:100%;margin:0}
+.rewrite-muralla.chapter-shell .wall-cut .photo-button{height:100%;clip-path:polygon(0 8%,96% 0,100% 91%,8% 100%)}
+.rewrite-muralla.chapter-shell .rewrite-detail{grid-column:2;grid-row:2;align-self:end;width:37%;height:min(24vh,14rem);margin:0 0 -1rem -7%;z-index:4;box-shadow:0 1.2rem 3rem rgba(0,0,0,.22)}
+.rewrite-muralla.chapter-shell .rewrite-detail .photo-button{height:100%}
+.rewrite-muralla.chapter-shell .primary-copy{position:absolute;left:var(--gutter);bottom:11rem;width:30vw}
+.rewrite-muralla.chapter-shell .rewrite-facts{position:absolute;right:var(--gutter);bottom:3rem;width:52vw}
+.rewrite-muralla.chapter-shell .facts{grid-template-columns:repeat(3,1fr)}
+.rewrite-muralla.chapter-shell .rewrite-actions{position:absolute;left:var(--gutter);bottom:3rem;width:30vw;display:grid}
+.rewrite-muralla.chapter-shell .rewrite-actions .source-links{text-align:left;justify-content:flex-start}
+.rewrite-muralla.chapter-shell .chapter-transition{position:absolute;right:var(--gutter);top:17%;width:22rem}
 
-.rewrite-monumento .rewrite-stage{grid-template-columns:.7fr 1.3fr;grid-template-rows:auto 1fr auto;gap:1rem 4rem}
-.inscription-dates{grid-column:1/-1;display:grid;grid-template-columns:1fr minmax(4rem,.35fr) 1fr;align-items:center;text-align:center}.inscription-dates span{display:flex;flex-direction:column;font-size:.58rem;letter-spacing:.17em}.inscription-dates b{font-family:"Bodoni Moda",serif;font-size:clamp(3.4rem,6vw,6.5rem);font-weight:500;line-height:.72}.inscription-dates i{height:1px;background:currentColor}
-.rewrite-monumento .chapter-heading{grid-column:1;grid-row:2;align-self:start;text-align:right}.rewrite-monumento .chapter-title{font-family:"Italiana",serif}
-.sculpture-frame{grid-column:2;grid-row:2;height:min(52vh,32rem)}.sculpture-frame .chapter-photo,.sculpture-frame .photo-button{height:100%;margin:0}.sculpture-frame .photo-button{clip-path:polygon(7% 0,93% 0,100% 10%,100% 90%,93% 100%,7% 100%,0 90%,0 10%)}
-.rewrite-monumento .primary-copy{grid-column:1;grid-row:2;align-self:center}
-.monument-ledger{grid-column:1;grid-row:2;align-self:end}.monument-ledger .facts{gap:.45rem}.monument-ledger .fact p{font-size:.66rem}
-.monument-precision{position:absolute;right:var(--gutter);top:23%;width:24rem;font-size:.67rem;border-left:.3rem solid currentColor;padding-left:.8rem}
-.rewrite-monumento .rewrite-actions{grid-column:1;grid-row:3;display:grid}.rewrite-monumento .rewrite-actions .source-links{justify-content:flex-start;text-align:left}.rewrite-monumento .chapter-transition{grid-column:2;grid-row:3;text-align:right}
-.bronze-echo{position:absolute;right:3%;bottom:2%;width:34rem;aspect-ratio:1;pointer-events:none}.bronze-echo i{position:absolute;inset:calc(var(--i,0)*4rem);border:1px solid rgba(62,53,43,.36);border-radius:50%}.bronze-echo i:nth-child(2){--i:1}.bronze-echo i:nth-child(3){--i:2}
+.rewrite-muralla.chapter-shell .wall-strata{position:absolute;inset:0;display:grid;grid-template-rows:repeat(5,1fr);z-index:-1;opacity:.16}
+.rewrite-muralla.chapter-shell .wall-strata i{border-bottom:1px solid currentColor;background:repeating-linear-gradient(90deg,currentColor 0 8%,transparent 8% 12%)}
+.rewrite-muralla.chapter-shell .perimeter-score{position:absolute;left:35%;right:4%;top:16%;display:grid;grid-template-columns:auto 1fr auto 1fr auto;align-items:center;gap:.8rem;font-size:.62rem;font-weight:600;letter-spacing:.13em}
+.rewrite-muralla.chapter-shell .perimeter-score i{height:.3rem;background:repeating-linear-gradient(90deg,currentColor 0 1rem,transparent 1rem 1.4rem)}
+.rewrite-muralla.chapter-shell .strata-breach{position:absolute;left:var(--gutter);right:var(--gutter);bottom:.7rem;height:1.5rem;background:repeating-linear-gradient(90deg,currentColor 0 13.5%,transparent 13.5% 15.5%,currentColor 15.5% 30%,transparent 30% 32%,currentColor 32% 46%,transparent 46% 48%,currentColor 48% 62%,transparent 62% 64%,currentColor 64% 100%);opacity:.16;pointer-events:none}
+.rewrite-muralla.chapter-shell .strata-breach span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);padding:.1rem .5rem;background:var(--chapter-paper);font-size:.56rem;font-weight:600;letter-spacing:.16em;white-space:nowrap}
+
+/* Estado estático / reduced / móvil: recuperar comportamiento legible */
+.rewrite-page:not(.is-animated) .prologue-rewrite{
+  position:relative;
+  min-height:100svh;
+  display:grid;
+  grid-template-columns:minmax(18rem,.78fr) minmax(0,1.22fr);
+  align-items:center;
+  gap:clamp(2rem,5vw,7rem);
+  padding:calc(var(--header-h) + 3rem) var(--gutter) 4rem;
+  background:#101814;
+  color:#f6f0e5;
+  isolation:isolate;
+  overflow:hidden;
+}
+.rewrite-page:not(.is-animated) .prologue-rewrite::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 18% 46%,rgba(205,151,79,.18),transparent 32%),linear-gradient(115deg,rgba(8,15,12,.06),rgba(8,15,12,.6))}
+.rewrite-page:not(.is-animated) .prologue-copy{position:relative;z-index:2;max-width:39rem}
+.rewrite-page:not(.is-animated) .prologue-copy .eyebrow{margin-bottom:1rem;font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+.rewrite-page:not(.is-animated) .prologue-copy h1{font-family:"Cormorant Garamond",serif;font-size:clamp(3.9rem,8.3vw,8.8rem);font-weight:500;line-height:.78;letter-spacing:-.055em;margin-bottom:2.2rem}
+.rewrite-page:not(.is-animated) .prologue-copy h1 em{font-family:"Bodoni Moda",serif;font-weight:500;color:#e2b169}
+.rewrite-page:not(.is-animated) .prologue-copy>p:not(.eyebrow){max-width:34rem;font-size:clamp(1rem,1.45vw,1.25rem);color:rgba(255,255,255,.78)}
+.rewrite-page:not(.is-animated) .enter-link{display:inline-flex;align-items:center;gap:1.25rem;margin-top:1.35rem;text-decoration:none;font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.rewrite-page:not(.is-animated) .enter-link span{display:grid;place-items:center;width:2.7rem;height:2.7rem;border:1px solid rgba(255,255,255,.55);border-radius:50%;transition:transform .25s,background .25s}
+.rewrite-page:not(.is-animated) .enter-link:hover span{transform:translateY(.3rem);background:#fff;color:#111}
+.rewrite-page:not(.is-animated) .master-image{position:relative;margin:0;align-self:stretch;min-height:36rem;display:grid;align-items:center}
+.rewrite-page:not(.is-animated) .master-image::before{content:"";position:absolute;inset:9% -3% 6% 7%;border:1px solid rgba(255,255,255,.22);transform:rotate(1.4deg)}
+.rewrite-page:not(.is-animated) .master-image img{position:relative;width:100%;height:min(73vh,54rem);object-fit:cover;object-position:center;border-radius:.25rem;box-shadow:0 2.5rem 8rem rgba(0,0,0,.42)}
+.rewrite-page:not(.is-animated) .master-image figcaption{position:absolute;right:1rem;bottom:1.1rem;padding:.45rem .68rem;background:rgba(9,13,12,.72);font-size:.67rem;letter-spacing:.08em;text-transform:uppercase}
+
+.rewrite-page:not(.is-animated) .rewrite-muralla.chapter-shell{min-height:175svh}
+.rewrite-page:not(.is-animated) .rewrite-muralla.chapter-shell .rewrite-stage{position:relative;height:auto;min-height:0;display:block;padding:6rem var(--gutter) 5rem;overflow:hidden}
+.rewrite-page:not(.is-animated) .rewrite-muralla.chapter-shell .rewrite-stage>*{margin-bottom:1.7rem}
+.rewrite-page:not(.is-animated) .rewrite-muralla.chapter-shell .chapter-title{font-size:clamp(3.1rem,14vw,5.4rem);text-align:left}
+.rewrite-page:not(.is-animated) .rewrite-muralla.chapter-shell .chapter-photo,.rewrite-page:not(.is-animated) .wall-cut,.rewrite-page:not(.is-animated) .rewrite-detail{width:100%;height:auto;margin:0 0 1.7rem;transform:none;clip-path:none}
+.rewrite-page:not(.is-animated) .rewrite-muralla.chapter-shell .photo-button{height:auto;aspect-ratio:4/3;clip-path:none}
+.rewrite-page:not(.is-animated) .rewrite-muralla.chapter-shell .rewrite-detail{width:72%;margin:-3rem 0 2rem auto}
+.rewrite-page:not(.is-animated) .rewrite-muralla.chapter-shell .primary-copy,.rewrite-page:not(.is-animated) .rewrite-muralla.chapter-shell .rewrite-facts,.rewrite-page:not(.is-animated) .rewrite-muralla.chapter-shell .rewrite-actions,.rewrite-page:not(.is-animated) .rewrite-muralla.chapter-shell .chapter-transition{position:static;width:auto;text-align:left}
+.rewrite-page:not(.is-animated) .rewrite-muralla.chapter-shell .facts,.rewrite-page:not(.is-animated) .rewrite-muralla.chapter-shell .civic-beats .facts,.rewrite-page:not(.is-animated) .rewrite-muralla.chapter-shell .quiet-copy .facts,.rewrite-page:not(.is-animated) .rewrite-muralla.chapter-shell .monument-ledger .facts{display:grid;grid-template-columns:1fr;gap:1rem}
+.rewrite-page:not(.is-animated) .rewrite-muralla.chapter-shell .fact p,.rewrite-page:not(.is-animated) .hydraulic-notes p,.rewrite-page:not(.is-animated) .quiet-copy .fact p,.rewrite-page:not(.is-animated) .monument-ledger .fact p{font-size:.9rem}
+.rewrite-page:not(.is-animated) .rewrite-muralla.chapter-shell .rewrite-actions{display:grid;gap:1rem}
+.rewrite-page:not(.is-animated) .rewrite-muralla.chapter-shell .rewrite-actions .source-links{justify-content:flex-start;text-align:left}
+.rewrite-page:not(.is-animated) .rewrite-muralla.chapter-shell .wall-strata,.rewrite-page:not(.is-animated) .perimeter-score,.rewrite-page:not(.is-animated) .strata-breach{display:none}
 
 @media (max-width:900px){
   .rewrite-rule{display:none}
-  .rewrite-chapter,.rewrite-chapter:nth-child(n){min-height:auto}
-  .rewrite-stage{position:relative;height:auto;min-height:0;display:block;padding:6rem var(--gutter) 5rem;overflow:hidden}
-  .rewrite-stage>*{margin-bottom:1.7rem}
-  .rewrite-stage .chapter-title{font-size:clamp(3.1rem,14vw,5.4rem);text-align:left}
-  .rewrite-stage .chapter-photo,.wall-cut,.door-depth,.plaza-opening,.cathedral-rise,.civic-facade,.mayorga-portrait,.water-window,.quiet-photo,.sculpture-frame{width:100%;height:auto;margin:0 0 1.7rem;transform:none;clip-path:none}
-  .rewrite-stage .photo-button{height:auto;aspect-ratio:4/3;clip-path:none}
-  .door-depth .photo-button{aspect-ratio:3/4;clip-path:polygon(4% 100%,4% 34%,7% 23%,14% 14%,24% 7%,36% 3%,50% 2%,64% 3%,76% 7%,86% 14%,93% 23%,96% 34%,96% 100%)}
-  .rewrite-stage .rewrite-detail{width:72%;margin:-3rem 0 2rem auto}
-  .rewrite-stage .primary-copy,.rewrite-stage .rewrite-facts,.rewrite-stage .rewrite-actions,.rewrite-stage .chapter-transition,.door-archive,.plaza-focus,.cathedral-precision,.technical-precision,.monument-precision{position:static;width:auto;text-align:left}
-  .rewrite-stage .facts,.civic-beats .facts,.quiet-copy .facts,.monument-ledger .facts{display:grid;grid-template-columns:1fr;gap:1rem}
-  .rewrite-stage .fact p,.hydraulic-notes p,.quiet-copy .fact p,.monument-ledger .fact p{font-size:.9rem}
-  .rewrite-actions{display:grid;gap:1rem}.rewrite-actions .source-links{justify-content:flex-start;text-align:left}
-  .wall-strata,.perimeter-score,.strata-breach,.tunnel-planes,.door-light,.door-emerge,.threshold-sides,.plaza-orbit,.cathedral-light,.mayorga-dial,.aqueduct-diagonal,.water-stations,.park-breath,.bronze-echo{display:none}
-  .plaza-focus{width:auto;margin-bottom:1rem;background:transparent}
-  .cathedral-rise>span{position:static;display:block;width:max-content;margin-bottom:.5rem;background:transparent;color:inherit}
-  .hydraulic-notes{display:grid;gap:1rem}
+  .rewrite-page.is-animated .prologue-rewrite{grid-template-columns:1fr;align-content:center;padding-top:calc(var(--header-h) + 2rem)}
+  .rewrite-page.is-animated .prologue-copy{max-width:none}
+  .rewrite-page.is-animated .prologue-copy h1{font-size:clamp(3.5rem,17vw,6.3rem)}
+  .rewrite-page.is-animated .master-image{min-height:0}
+  .rewrite-page.is-animated .master-image img{height:36svh}
+  .rewrite-page.is-animated .master-image::before{display:none}
+  .rewrite-page.is-animated .hero-survivor{display:none}
+  .rewrite-page.is-animated .hero-transition{display:none}
+  .rewrite-page.is-animated .rewrite-muralla.chapter-shell{min-height:auto}
+  .rewrite-page.is-animated .rewrite-muralla.chapter-shell .rewrite-stage{position:relative;height:auto;min-height:0;display:block;padding:6rem var(--gutter) 5rem;overflow:hidden}
+  .rewrite-page.is-animated .rewrite-muralla.chapter-shell .rewrite-stage>*{margin-bottom:1.7rem}
+  .rewrite-page.is-animated .rewrite-muralla.chapter-shell .chapter-title{font-size:clamp(3.1rem,14vw,5.4rem);text-align:left}
+  .rewrite-page.is-animated .rewrite-muralla.chapter-shell .chapter-photo,.rewrite-page.is-animated .wall-cut,.rewrite-page.is-animated .rewrite-detail{width:100%;height:auto;margin:0 0 1.7rem;transform:none;clip-path:none}
+  .rewrite-page.is-animated .rewrite-muralla.chapter-shell .photo-button{height:auto;aspect-ratio:4/3;clip-path:none}
+  .rewrite-page.is-animated .rewrite-muralla.chapter-shell .rewrite-detail{width:72%;margin:-3rem 0 2rem auto}
+  .rewrite-page.is-animated .rewrite-muralla.chapter-shell .primary-copy,.rewrite-page.is-animated .rewrite-muralla.chapter-shell .rewrite-facts,.rewrite-page.is-animated .rewrite-muralla.chapter-shell .rewrite-actions,.rewrite-page.is-animated .rewrite-muralla.chapter-shell .chapter-transition{position:static;width:auto;text-align:left}
+  .rewrite-page.is-animated .rewrite-muralla.chapter-shell .facts,.rewrite-page.is-animated .rewrite-muralla.chapter-shell .civic-beats .facts,.rewrite-page.is-animated .rewrite-muralla.chapter-shell .quiet-copy .facts,.rewrite-page.is-animated .rewrite-muralla.chapter-shell .monument-ledger .facts{display:grid;grid-template-columns:1fr;gap:1rem}
+  .rewrite-page.is-animated .rewrite-muralla.chapter-shell .fact p,.rewrite-page.is-animated .hydraulic-notes p,.rewrite-page.is-animated .quiet-copy .fact p,.rewrite-page.is-animated .monument-ledger .fact p{font-size:.9rem}
+  .rewrite-page.is-animated .rewrite-muralla.chapter-shell .rewrite-actions{display:grid;gap:1rem}
+  .rewrite-page.is-animated .rewrite-muralla.chapter-shell .rewrite-actions .source-links{justify-content:flex-start;text-align:left}
+  .rewrite-page.is-animated .rewrite-muralla.chapter-shell .wall-strata,.rewrite-page.is-animated .perimeter-score,.rewrite-page.is-animated .strata-breach{display:none}
 }
 
 @media (max-height:760px) and (min-width:901px){
-  .rewrite-stage .chapter-title{font-size:clamp(3rem,5.2vw,5.4rem)}
-  .rewrite-stage .chapter-brief{font-size:.82rem}
-  .rewrite-stage .fact p{font-size:.64rem;line-height:1.34}
-  .rewrite-stage .chapter-transition{font-size:1.05rem}
+  .rewrite-page.is-animated .prologue-copy h1{font-size:clamp(3rem,5.2vw,5.4rem)}
+  .rewrite-page.is-animated .prologue-copy>p:not(.eyebrow){font-size:.82rem}
+  .rewrite-page.is-animated .rewrite-muralla.chapter-shell .chapter-title{font-size:clamp(3rem,5.2vw,5.4rem)}
+  .rewrite-page.is-animated .rewrite-muralla.chapter-shell .chapter-brief{font-size:.82rem}
+  .rewrite-page.is-animated .rewrite-muralla.chapter-shell .fact p{font-size:.64rem;line-height:1.34}
+  .rewrite-page.is-animated .rewrite-muralla.chapter-shell .chapter-transition{font-size:1.05rem}
 }

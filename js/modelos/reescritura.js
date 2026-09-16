@@ -7,6 +7,7 @@ let shell;
 let motionContext;
 let activeObserver;
 const mobile = matchMedia('(max-width: 900px)');
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 
 try {
   const data = await loadPlasenciaData();
@@ -15,7 +16,10 @@ try {
   observeStatic(data.chapters);
   rebuildMotion(shell.reduced());
   mobile.addEventListener('change', () => rebuildMotion(shell.reduced()));
-  Promise.all([document.fonts.ready, ...[...document.images].map((image) => image.decode?.().catch(() => undefined))]).then(() => window.ScrollTrigger?.refresh());
+  Promise.all([document.fonts.ready, ...[...document.images].map((image) => image.decode?.().catch(() => undefined))]).then(() => {
+    window.ScrollTrigger?.refresh();
+    animateHero();
+  });
 } catch (error) {
   root.innerHTML = `<section class="error-panel"><div><h2>No se pudieron abrir las capas.</h2><p>${escapeHTML(error.message)}</p></div></section>`;
   console.error(error);
@@ -141,13 +145,245 @@ function rebuildMotion(reduced = shell?.reduced() ?? false) {
           trigger: scene,
           start: 'top top',
           end: 'bottom bottom',
-          scrub: scene.id === 'parque' ? .85 : .55,
+          scrub: scene.id === 'parque' ? .85 : .5,
           onEnter: () => shell.update(scene.id),
           onEnterBack: () => shell.update(scene.id)
         }
       });
       composeScene(gsap, timeline, scene);
     });
+
+    const prologue = document.querySelector('#inicio');
+    if (prologue) {
+      const heroTimeline = gsap.timeline({ paused: true });
+      heroTimeline
+        .set(['.hero-survivor img', '.hero-transition'], { clearProps: 'opacity' })
+        .to('.prologue-rewrite', {
+          scrollTrigger: {
+            trigger: prologue,
+            start: 'top top',
+            end: () => '+=1',
+            scrub: 1.1,
+            invalidateOnRefresh: true
+          },
+          scale: 1.055,
+          ease: 'none'
+        }, 0)
+        .fromTo('.hero-transition .hero-fade', {
+          opacity: 0
+        }, {
+          opacity: 1,
+          scrollTrigger: {
+            trigger: prologue,
+            start: 'top bottom',
+            end: '+=280',
+            scrub: 1.05,
+            invalidateOnRefresh: true
+          }
+        }, 0)
+        .fromTo('.hero-survivor img', {
+          willChange: 'transform'
+        }, {
+          yPercent: 8,
+          xPercent: -3,
+          scale: .97,
+          opacity: .92,
+          scrollTrigger: {
+            trigger: prologue,
+            start: 'top bottom',
+            end: '+=220',
+            scrub: 1.05,
+            invalidateOnRefresh: true
+          }
+        }, 0)
+        .fromTo('.hero-transition .hero-text', {
+          clipPath: 'inset(0 32% 0 52%)'
+        }, {
+          clipPath: 'inset(0 0% 0 0%)',
+          scrollTrigger: {
+            trigger: prologue,
+            start: 'top bottom',
+            end: '+=260',
+            scrub: 1.05,
+            invalidateOnRefresh: true
+          }
+        }, .05)
+        .fromTo('.hero-transition .hero-quote', {
+          clipPath: 'inset(0 52% 0 0)'
+        }, {
+          clipPath: 'inset(0 0% 0 0%)',
+          scrollTrigger: {
+            trigger: prologue,
+            start: 'top bottom',
+            end: '+=260',
+            scrub: 1.05,
+            invalidateOnRefresh: true
+          }
+        }, .08)
+        .fromTo('.hero-transition .hero-key', {
+          scale: .78,
+          opacity: 0,
+          rotation: -12
+        }, {
+          scale: 1,
+          opacity: 1,
+          rotation: 0,
+          scrollTrigger: {
+            trigger: prologue,
+            start: 'top bottom',
+            end: '+=240',
+            scrub: 1.05,
+            invalidateOnRefresh: true
+          }
+        }, .14)
+        .fromTo('.hero-transition .hero-chapter', {
+          yPercent: 14,
+          opacity: 0
+        }, {
+          yPercent: 0,
+          opacity: 1,
+          scrollTrigger: {
+            trigger: prologue,
+            start: 'top bottom',
+            end: '+=240',
+            scrub: 1.05,
+            invalidateOnRefresh: true
+          }
+        }, .18)
+        .fromTo('.hero-transition .hero-crest', {
+          scale: .82,
+          opacity: 0,
+          rotation: -6
+        }, {
+          scale: 1,
+          opacity: .32,
+          rotation: 0,
+          scrollTrigger: {
+            trigger: prologue,
+            start: 'top bottom',
+            end: '+=240',
+            scrub: 1.05,
+            invalidateOnRefresh: true
+          }
+        }, .22)
+        .fromTo('.hero-transition .hero-bracket', {
+          scaleX: 0
+        }, {
+          scaleX: 1,
+          transformOrigin: 'left center',
+          scrollTrigger: {
+            trigger: prologue,
+            start: 'top bottom',
+            end: '+=240',
+            scrub: 1.05,
+            invalidateOnRefresh: true
+          }
+        }, .26)
+        .fromTo('.hero-transition .hero-shadow', {
+          scale: .8,
+          opacity: 0
+        }, {
+          scale: 1,
+          opacity: .42,
+          scrollTrigger: {
+            trigger: prologue,
+            start: 'top bottom',
+            end: '+=240',
+            scrub: 1.05,
+            invalidateOnRefresh: true
+          }
+        }, .3);
+
+    if (!reducedMotion.matches && !mobile.matches && window.gsap && window.ScrollTrigger && prologue) {
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: prologue,
+          start: 'top bottom',
+          end: '+=1400',
+          scrub: 1.15,
+          invalidateOnRefresh: true
+        }
+      })
+        .to('.hero-survivor img', {
+          yPercent: 14,
+          xPercent: -14,
+          scale: .78,
+          opacity: .14,
+          ease: 'none'
+        }, 0)
+        .to('.master-image', {
+          scale: .94,
+          ease: 'none'
+        }, 0)
+        .to('.prologue-rewrite', {
+          rotation: gsap.utils.clamp(-.35, .35, (window.innerWidth < 900 ? 0 : -1.4)),
+          ease: 'none'
+        }, 0)
+        .to('.hero-transition .hero-crest', {
+          opacity: 0,
+          rotation: -10,
+          scale: .86,
+          ease: 'none'
+        }, 0.62)
+        .to('.hero-transition .hero-key', {
+          rotation: 10,
+          opacity: 0,
+          scale: .88,
+          ease: 'none'
+        }, 0.66)
+        .to('.hero-transition .hero-text', {
+          y: -8,
+          opacity: 0.12,
+          ease: 'none'
+        }, 0.7)
+        .to('.hero-transition .hero-fade', {
+          opacity: 0.28,
+          ease: 'none'
+        }, 0.74)
+        .to('.hero-transition .hero-overlayer', {
+          opacity: 0.2,
+          ease: 'none'
+        }, 0.8)
+        .to('.hero-transition .hero-fill', {
+          scaleY: .42,
+          ease: 'none'
+        }, 0.82)
+        .to('.hero-transition .hero-sublayer', {
+          opacity: 0,
+          y: 14,
+          ease: 'none'
+        }, 0.86)
+        .to('.hero-transition .hero-underscore', {
+          scaleX: .2,
+          ease: 'none'
+        }, 0.9)
+        .to('.hero-transition .hero-shadow', {
+          opacity: .14,
+          scale: .76,
+          ease: 'none'
+        }, 0.92)
+        .to('.hero-transition .hero-bracket', {
+          scaleX: .2,
+          ease: 'none'
+        }, 0.94)
+        .to('.hero-transition .hero-chapter', {
+          yPercent: -10,
+          opacity: 0.26,
+          ease: 'none'
+        }, 0.94)
+        .to('.hero-transition .hero-quote', {
+          clipPath: 'inset(0 40% 0 18%)',
+          ease: 'none'
+        }, 0.94)
+        .to('.enter-link span', {
+          rotation: 0,
+          boxShadow: '0 0 0 1px rgba(255,255,255,.08)',
+          opacity: 0.4,
+          ease: 'none'
+        }, 0.86);
+    }
+
+    heroTimeline.scrollTrigger && heroTimeline.scrollTrigger.disable();
   }, root);
   window.ScrollTrigger.refresh();
 }
