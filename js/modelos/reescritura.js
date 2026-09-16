@@ -382,10 +382,13 @@ function rebuildMotion(reduced = shell?.reduced() ?? false) {
           ease: 'none'
         }, 0.86);
     }
-
     heroTimeline.scrollTrigger && heroTimeline.scrollTrigger.disable();
-  }, root);
-  window.ScrollTrigger.refresh();
+  }
+
+  motionContext = motionContext; // NO AÑADAS ESTO
+}, root);
+
+window.ScrollTrigger.refresh();
 }
 
 function composeScene(gsap, timeline, scene) {
