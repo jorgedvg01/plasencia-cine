@@ -385,7 +385,7 @@ function rebuildMotion(reduced = shell?.reduced() ?? false) {
     heroTimeline.scrollTrigger && heroTimeline.scrollTrigger.disable();
   }
 
-  motionContext = motionContext; // NO AÑADAS ESTO
+  
 }, root);
 
 window.ScrollTrigger.refresh();
