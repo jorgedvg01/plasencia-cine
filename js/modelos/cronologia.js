@@ -51,18 +51,21 @@ function renderStation(data, chapter, index) {
     plaza: () => `<section class="chrono-station station-plaza chapter-shell" id="plaza" data-chapter="plaza" style="--chapter-paper:#edcfb5;--chapter-ink:#52382f">
       ${chapterHeading(chapter, index)}
       <div class="square-voices"><span>mercado</span><span>oficios</span><span>soportales</span><span>encuentro</span></div>
-      ${photoFigure(data, 'plaza', { className: 'station-lead', storyId: chapter.id, storyLabel: chapter.name })}
+      <div class="square-mosaic">${photoFigure(data, 'plaza', { className: 'station-lead', storyId: chapter.id, storyLabel: chapter.name })}</div>
       ${primaryCopy(chapter)}
       <div class="station-facts">${factualSections(chapter)}</div>
       <aside class="square-date"><strong>Martes</strong><span>mercado semanal</span></aside>
+      <div class="square-ascent" aria-hidden="true"><i></i><span>ASCENSO A LA PIEDRA SAGRADA</span></div>
       <div class="station-actions">${storyAction(chapter)}${chapterSources(chapter)}</div>${transitionCopy(chapter)}
     </section>`,
     catedral: () => `<section class="chrono-station station-catedral chapter-shell" id="catedral" data-chapter="catedral" style="--chapter-paper:#e7e5df;--chapter-ink:#2a3c3d">
       <div class="cathedral-station-axis" aria-hidden="true"><span>${escapeHTML(chapter.milestones[0][0])}</span><i></i><span>${escapeHTML(chapter.milestones[1][0])}</span></div>
+      <div class="tower-halt" aria-hidden="true"><span>EL TRANSPORTE SE DETIENE</span></div>
       ${chapterHeading(chapter, index)}
-      <div class="station-cathedral-pair">${photoFigure(data, 'catedral', { className: 'station-lead', storyId: chapter.id, storyLabel: chapter.name })}${photoFigure(data, 'catedral-entorno', { className: 'station-detail' })}</div>
+      <div class="station-cathedral-pair"><div class="tower-old">${photoFigure(data, 'catedral-entorno', { className: 'station-detail' })}</div><div class="tower-new">${photoFigure(data, 'catedral', { className: 'station-lead', storyId: chapter.id, storyLabel: chapter.name })}</div></div>
       ${primaryCopy(chapter)}
       <div class="station-facts">${factualSections(chapter)}</div>
+      <div class="civic-handoff" aria-hidden="true"><span>DEL TIEMPO DE LA FE AL TIEMPO CIVIL</span></div>
       <div class="station-actions">${storyAction(chapter)}${chapterSources(chapter)}</div>${transitionCopy(chapter)}
     </section>`,
     ayuntamiento: () => `<section class="chrono-station station-ayuntamiento chapter-shell" id="ayuntamiento" data-chapter="ayuntamiento" style="--chapter-paper:#283230;--chapter-ink:#f1e9dc">
@@ -179,12 +182,14 @@ function composeStation(timeline, panel, at) {
   } else if (panel.id === 'plaza') {
     timeline.fromTo(q('.station-lead'), { clipPath: 'circle(7% at 54% 52%)' }, { clipPath: 'circle(75% at 54% 52%)', duration: .85 }, at)
       .fromTo(qa('.square-voices span'), { x: (index) => [-90, 70, -50, 80][index], y: (index) => [12, -34, 42, 0][index], opacity: 0 }, { x: 0, y: 0, opacity: 1, stagger: .1, duration: .6 }, at + .18)
-      .fromTo(qa('.station-facts .fact'), { y: 28, opacity: 0 }, { y: 0, opacity: 1, stagger: .08, duration: .5 }, at + .5);
+      .fromTo(qa('.station-facts .fact'), { x: (index) => index % 2 ? 90 : -90, opacity: 0 }, { x: 0, opacity: 1, stagger: .1, duration: .5 }, at + .5)
+      .fromTo(q('.square-ascent i'), { scaleY: 0 }, { scaleY: 1, transformOrigin: 'bottom', duration: .7, ease: 'none' }, at + 1.1);
   } else if (panel.id === 'catedral') {
-    timeline.fromTo(q('.chapter-heading'), { y: 90, opacity: 0 }, { y: 0, opacity: 1, duration: .85 }, at)
-      .fromTo(q('.station-lead'), { y: 110, clipPath: 'inset(35% 0 0)' }, { y: 0, clipPath: 'inset(0% 0 0)', duration: 1 }, at + .05)
-      .fromTo(q('.station-detail'), { y: -70, opacity: 0 }, { y: 0, opacity: 1, duration: .72 }, at + .35)
-      .fromTo(q('.cathedral-station-axis i'), { scaleY: 0 }, { scaleY: 1, transformOrigin: 'top', duration: .9 }, at + .18);
+    timeline.fromTo(q('.tower-new'), { yPercent: 70, clipPath: 'inset(38% 0 0)' }, { yPercent: 0, clipPath: 'inset(0% 0 0)', duration: 1.05, ease: 'power2.out' }, at)
+      .fromTo(q('.cathedral-station-axis i'), { scaleY: 0 }, { scaleY: 1, transformOrigin: 'top', duration: .9 }, at + .18)
+      .fromTo(q('.chapter-heading'), { y: 90, clipPath: 'inset(0 0 55% 0)' }, { y: 0, clipPath: 'inset(0 0 0% 0)', duration: .85 }, at + .3)
+      .fromTo(q('.tower-old'), { yPercent: 55, clipPath: 'inset(45% 0 0)' }, { yPercent: 0, clipPath: 'inset(0% 0 0)', duration: .95, ease: 'power2.out' }, at + .55)
+      .fromTo(q('.civic-handoff'), { clipPath: 'inset(0 50% 0 50%)' }, { clipPath: 'inset(0 0% 0 0%)', duration: .5 }, at + 1.35);
   } else if (panel.id === 'ayuntamiento') {
     timeline.fromTo(q('.civic-dial'), { rotation: -45, scale: .75, opacity: 0 }, { rotation: 0, scale: 1, opacity: 1, duration: .9 }, at)
       .fromTo(q('.station-lead'), { scale: .93, opacity: 0 }, { scale: 1, opacity: 1, duration: .55 }, at + .15)

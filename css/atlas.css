@@ -1,7 +1,12 @@
 .atlas-page{--accent:#a04b36;background:#ddd7ca}
 .prologue-atlas{background:#17231f}
 .atlas-coordinates{position:absolute;left:var(--gutter);bottom:2rem;display:flex;gap:1rem;font-size:.63rem;letter-spacing:.15em;color:rgba(255,255,255,.6)}
-.atlas-field{position:relative;padding:10rem var(--gutter) 8rem;background-color:#ddd7ca;background-image:linear-gradient(rgba(44,55,49,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(44,55,49,.055) 1px,transparent 1px);background-size:4rem 4rem}
+.atlas-field{position:relative}
+.atlas-seq{position:relative;height:100svh;overflow:hidden;background-color:#1b231f;background-image:radial-gradient(circle at 28% 18%,rgba(150,168,150,.16),transparent 55%),radial-gradient(circle at 78% 82%,rgba(70,92,80,.24),transparent 62%),linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);background-size:auto,auto,4rem 4rem,4rem 4rem}
+.atlas-plane{position:absolute;inset:0;display:grid;place-items:center;will-change:transform,opacity}
+.atlas-plane .atlas-leaf{width:min(88rem,94%);height:calc(100svh - 3rem);min-height:0;margin:0;overflow:hidden;box-shadow:0 2.4rem 7rem rgba(0,0,0,.4)}
+.atlas-plane .atlas-leaf:nth-child(n){transform:none}
+.atlas-flow{position:relative;padding:10rem var(--gutter) 8rem;background-color:#ddd7ca;background-image:linear-gradient(rgba(44,55,49,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(44,55,49,.055) 1px,transparent 1px);background-size:4rem 4rem}
 .atlas-route{position:absolute;left:50%;top:4rem;bottom:4rem;width:1px;background:rgba(38,50,43,.2)}
 .atlas-route i{position:absolute;inset:0;background:#9a4936;transform-origin:top}
 .atlas-route b{position:sticky;top:50%;display:block;width:.7rem;height:.7rem;margin-left:-.32rem;border-radius:50%;background:#9a4936;box-shadow:0 0 0 .35rem rgba(154,73,54,.14)}
@@ -69,6 +74,9 @@
 .plaza-ledger .facts{grid-template-columns:1.05fr .9fr 1.05fr;align-items:start}
 .plaza-ledger .fact:nth-child(2){margin-top:4rem}
 .plaza-caution{grid-column:10/-1;align-self:center;margin-top:4rem;padding:1rem;border-top:1px solid currentColor;font-size:.82rem;font-style:italic}
+.plaza-ascent{position:absolute;right:1.4rem;top:24%;height:42%;width:1px;background:currentColor;opacity:.22;pointer-events:none;z-index:0}
+.plaza-ascent i{position:absolute;left:-1px;bottom:0;width:3px;height:100%;background:#a4503a;transform-origin:bottom}
+.plaza-ascent span{position:absolute;right:.9rem;top:0;writing-mode:vertical-rl;font-size:.56rem;letter-spacing:.2em;opacity:.85}
 .atlas-plaza .atlas-actions,.atlas-plaza .chapter-transition{grid-column:1/-1}
 
 .atlas-catedral{display:grid;grid-template-columns:.7fr 1.3fr;gap:2rem 5rem;background:radial-gradient(circle at 70% 22%,rgba(255,255,255,.94),transparent 33%),#e5e4df}
@@ -85,6 +93,8 @@
 .cathedral-facts{grid-column:1/-1;margin-top:3rem}
 .cathedral-facts .facts{grid-template-columns:repeat(3,1fr)}
 .cathedral-note{grid-column:1;font-size:.82rem;border-left:.35rem solid currentColor;padding-left:1rem}
+.civic-ring{position:absolute;left:50%;bottom:5rem;width:9rem;height:9rem;margin-left:-4.5rem;border:1px solid currentColor;border-radius:50%;opacity:.4;pointer-events:none}
+.civic-ring span{position:absolute;left:50%;top:-1.4rem;transform:translateX(-50%);font-size:.55rem;letter-spacing:.18em;white-space:nowrap}
 .atlas-catedral .atlas-actions,.atlas-catedral .chapter-transition{grid-column:1/-1}
 
 .atlas-ayuntamiento{display:grid;grid-template-columns:repeat(12,1fr);gap:1.5rem 2rem}
@@ -156,7 +166,10 @@
 
 @media (max-width:900px){
   .atlas-coordinates,.atlas-route{display:none}
-  .atlas-field{padding:5rem 0;background-size:2rem 2rem}
+  .atlas-seq{height:auto;overflow:visible;background:none}
+  .atlas-plane{position:static;display:block;opacity:1!important;transform:none!important}
+  .atlas-plane .atlas-leaf{width:calc(100% - 1.4rem);height:auto;min-height:auto;margin:0 auto 4rem;overflow:visible;box-shadow:0 1.4rem 3rem rgba(31,38,34,.13)}
+  .atlas-flow{padding:5rem 0;background-size:2rem 2rem}
   .atlas-leaf,.atlas-leaf:nth-child(n){width:calc(100% - 1.4rem);min-height:auto;margin:0 auto 4rem;padding:3rem 1.15rem;display:block;transform:none!important}
   .atlas-leaf>*{margin-bottom:2rem}
   .atlas-leaf .chapter-title{font-size:clamp(3.2rem,15vw,5.5rem)}
@@ -169,7 +182,7 @@
   .plaza-voices{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:.8rem 1.3rem}
   .plaza-voices span:nth-child(n){transform:none}
   .plaza-caution{margin-top:1rem}
-  .cathedral-years,.clock-orbit,.aqueduct-route,.breathing-rings,.water-echo,.wall-perimeter,.wall-breach,.door-depth-planes{display:none}
+  .cathedral-years,.clock-orbit,.aqueduct-route,.breathing-rings,.water-echo,.wall-perimeter,.wall-breach,.door-depth-planes,.plaza-ascent,.civic-ring{display:none}
   .cathedral-pair,.civic-pair{display:grid;grid-template-columns:1fr;min-height:0}
   .cathedral-pair .atlas-detail,.civic-pair .atlas-detail{width:72%;margin:-3rem 0 0 auto;transform:none}
   .civic-pulses .fact{min-height:0;border-radius:0;text-align:left}

@@ -6,11 +6,14 @@ const root = document.querySelector('#story-root');
 let shell;
 let motionContext;
 let activeObserver;
+let seqTrigger;
 const mobile = matchMedia('(max-width: 900px)');
 
 try {
   const data = await loadPlasenciaData();
-  root.innerHTML = `<div class="atlas-field"><div class="atlas-route" aria-hidden="true"><i></i><b></b></div>${data.chapters.map((chapter, index) => renderAtlasChapter(data, chapter, index)).join('')}</div>${footerMarkup()}`;
+  const seqChapters = data.chapters.slice(0, 3);
+  const flowChapters = data.chapters.slice(3);
+  root.innerHTML = `<div class="atlas-field"><div class="atlas-seq">${seqChapters.map((chapter, index) => `<div class="atlas-plane" data-chapter="${chapter.id}">${renderAtlasChapter(data, chapter, index)}</div>`).join('')}</div><div class="atlas-flow"><div class="atlas-route" aria-hidden="true"><i></i><b></b></div>${flowChapters.map((chapter, index) => renderAtlasChapter(data, chapter, index + 3)).join('')}</div></div>${footerMarkup()}`;
   shell = initShell({ data, model: 'atlas', goTo, onMotionChange: rebuildMotion });
   observeChapters(data.chapters);
   rebuildMotion(shell.reduced());
@@ -54,6 +57,7 @@ function renderAtlasChapter(data, chapter, index) {
       ${primaryCopy(chapter)}
       <div class="plaza-ledger">${factualSections(chapter)}</div>
       <p class="plaza-caution">Una plaza no tiene una sola fecha: el espacio, las fachadas y el mobiliario pertenecen a transformaciones distintas.</p>
+      <div class="plaza-ascent" aria-hidden="true"><i></i><span>LA MIRADA ASCIENDE</span></div>
       <div class="atlas-actions">${storyAction(chapter)}${chapterSources(chapter)}</div>
       ${transitionCopy(chapter)}
     </section>`,
@@ -61,12 +65,13 @@ function renderAtlasChapter(data, chapter, index) {
       <div class="cathedral-years" aria-hidden="true"><span>${escapeHTML(chapter.milestones[0][0])}</span><i></i><span>${escapeHTML(chapter.milestones[1][0])}</span></div>
       ${chapterHeading(chapter, index)}
       <div class="cathedral-pair">
-        ${photoFigure(data, 'catedral', { className: 'atlas-lead', storyId: chapter.id, storyLabel: chapter.name, focus: '50% 40%' })}
-        ${photoFigure(data, 'catedral-entorno', { className: 'atlas-detail', focus: '50% 52%' })}
+        ${photoFigure(data, 'catedral', { className: 'atlas-lead cathedral-new', storyId: chapter.id, storyLabel: chapter.name, focus: '50% 40%' })}
+        ${photoFigure(data, 'catedral-entorno', { className: 'atlas-detail cathedral-old', focus: '50% 52%' })}
       </div>
       ${primaryCopy(chapter)}
       <div class="cathedral-facts">${factualSections(chapter)}</div>
       <p class="cathedral-note">Dos proyectos conviven. La selección fotográfica no sustituye un plano ni reconstruye las fases de obra.</p>
+      <div class="civic-ring" aria-hidden="true"><span>EL TIEMPO CIVIL</span></div>
       <div class="atlas-actions">${storyAction(chapter)}${chapterSources(chapter)}</div>
       ${transitionCopy(chapter)}
     </section>`,
@@ -120,7 +125,13 @@ function renderAtlasChapter(data, chapter, index) {
 
 function observeChapters(chapters) {
   activeObserver?.disconnect();
+  const seqIds = new Set(sequenceIds());
   activeObserver = new IntersectionObserver((entries) => {
+    if (document.body.classList.contains('is-animated')) {
+      const flow = entries.filter((entry) => entry.isIntersecting && !seqIds.has(entry.target.id)).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (flow) shell.update(flow.target.id);
+      return;
+    }
     const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
     if (visible) shell.update(visible.target.id);
   }, { rootMargin: '-34% 0px -46% 0px', threshold: [0, .1, .25] });
@@ -136,10 +147,11 @@ function rebuildMotion(reduced = shell?.reduced() ?? false) {
   window.gsap.registerPlugin(window.ScrollTrigger);
   motionContext = window.gsap.context(() => {
     const gsap = window.gsap;
-    gsap.fromTo('.atlas-route i', { scaleY: 0 }, { scaleY: 1, ease: 'none', scrollTrigger: { trigger: '.atlas-field', start: 'top 70%', end: 'bottom 30%', scrub: .4 } });
-    document.querySelectorAll('.atlas-leaf').forEach((scene) => {
+    buildSequence(gsap);
+    gsap.fromTo('.atlas-route i', { scaleY: 0 }, { scaleY: 1, ease: 'none', scrollTrigger: { trigger: '.atlas-flow', start: 'top 70%', end: 'bottom 30%', scrub: .8 } });
+    document.querySelectorAll('.atlas-flow .atlas-leaf').forEach((scene) => {
       const id = scene.id;
-      const timeline = gsap.timeline({ scrollTrigger: { trigger: scene, start: 'top 78%', end: 'top 28%', scrub: .45 } });
+      const timeline = gsap.timeline({ defaults: { ease: 'power3.inOut' }, scrollTrigger: { trigger: scene, start: 'top 80%', end: 'top 32%', scrub: 2 } });
       if (id === 'muralla') {
         timeline.fromTo(scene.querySelectorAll('.wall-blocks i'), { scaleX: 0 }, { scaleX: 1, stagger: .08, transformOrigin: 'left' }, 0)
           .fromTo(scene.querySelector('.atlas-lead'), { x: -90, clipPath: 'inset(0 35% 0 0)' }, { x: 0, clipPath: 'inset(0 0% 0 0)' }, .08)
@@ -155,13 +167,15 @@ function rebuildMotion(reduced = shell?.reduced() ?? false) {
           .fromTo(scene.querySelector('.plaza-opening'), { clipPath: 'inset(0 50% 0 50%)' }, { clipPath: 'inset(0 0% 0 0%)' }, .6);
       } else if (id === 'plaza') {
         timeline.fromTo(scene.querySelector('.atlas-lead'), { clipPath: 'circle(8% at 50% 50%)' }, { clipPath: 'circle(72% at 50% 50%)' }, 0)
-          .fromTo(scene.querySelectorAll('.plaza-voices span'), { x: (index) => [-85, 70, -35][index], y: (index) => [0, 30, -40][index], opacity: 0 }, { x: 0, y: 0, opacity: 1, stagger: .12 }, .12)
-          .fromTo(scene.querySelectorAll('.plaza-ledger .fact'), { y: 38, opacity: 0 }, { y: 0, opacity: 1, stagger: .1 }, .4);
+          .fromTo(scene.querySelectorAll('.plaza-voices span'), { x: (index) => [-125, 125, 0][index], y: (index) => [26, -22, 46][index], scale: (index) => [1, 1, .45][index], transformOrigin: 'center', opacity: 0 }, { x: 0, y: 0, scale: 1, opacity: 1, stagger: .13 }, .12)
+          .fromTo(scene.querySelectorAll('.plaza-ledger .fact'), { y: 38, clipPath: 'inset(0 0 100% 0)' }, { y: 0, clipPath: 'inset(0 0 0% 0)', stagger: .1 }, .4)
+          .fromTo(scene.querySelector('.plaza-ascent i'), { scaleY: 0 }, { scaleY: 1, transformOrigin: 'bottom', ease: 'none' }, .72);
       } else if (id === 'catedral') {
-        timeline.fromTo(scene.querySelector('.chapter-heading'), { y: 95, opacity: 0 }, { y: 0, opacity: 1 }, 0)
-          .fromTo(scene.querySelector('.atlas-lead'), { y: 120, clipPath: 'inset(28% 0 0)' }, { y: 0, clipPath: 'inset(0% 0 0)' }, .05)
-          .fromTo(scene.querySelector('.atlas-detail'), { y: -70, opacity: 0 }, { y: 0, opacity: 1 }, .32)
-          .fromTo(scene.querySelector('.cathedral-years i'), { scaleY: 0 }, { scaleY: 1, transformOrigin: 'top' }, .2);
+        timeline.fromTo(scene.querySelector('.cathedral-new'), { y: 130, clipPath: 'inset(30% 0 0)' }, { y: 0, clipPath: 'inset(0% 0 0)', ease: 'power3.inOut' }, 0)
+          .fromTo(scene.querySelector('.cathedral-years i'), { scaleY: 0 }, { scaleY: 1, transformOrigin: 'top' }, .1)
+          .fromTo(scene.querySelector('.chapter-heading'), { y: 95, clipPath: 'inset(0 0 55% 0)' }, { y: 0, clipPath: 'inset(0 0 0% 0)' }, .12)
+          .fromTo(scene.querySelector('.cathedral-old'), { y: 120, clipPath: 'inset(45% 0 0)' }, { y: 0, clipPath: 'inset(0% 0 0)', ease: 'power3.inOut' }, .46)
+          .fromTo(scene.querySelector('.civic-ring'), { scale: 0, opacity: 0, transformOrigin: 'center' }, { scale: 1, opacity: .7 }, .8);
       } else if (id === 'ayuntamiento') {
         timeline.fromTo(scene.querySelector('.clock-orbit'), { rotation: -32, scale: .76, opacity: 0 }, { rotation: 0, scale: 1, opacity: 1 }, 0)
           .fromTo(scene.querySelector('.atlas-lead'), { scale: .92, opacity: 0 }, { scale: 1, opacity: 1 }, .12)
@@ -189,9 +203,70 @@ function rebuildMotion(reduced = shell?.reduced() ?? false) {
   window.ScrollTrigger.refresh();
 }
 
+function sequenceIds() {
+  return Array.from(root.querySelectorAll('.atlas-plane')).map((plane) => plane.dataset.chapter);
+}
+
+function buildSequence(gsap) {
+  const seq = root.querySelector('.atlas-seq');
+  if (!seq) return;
+  const planes = Array.from(seq.querySelectorAll('.atlas-plane'));
+  if (planes.length < 2) return;
+  const leaves = planes.map((plane) => plane.querySelector('.atlas-leaf'));
+  const total = planes.length;
+  const overflow = (el) => Math.max(0, el.scrollHeight - window.innerHeight + 32);
+  planes.forEach((plane, idx) => {
+    gsap.set(plane, { zIndex: idx + 1, transformOrigin: '50% 58%' });
+    if (idx === 0) gsap.set(plane, { opacity: 1, scale: 1, yPercent: 0 });
+    else gsap.set(plane, { opacity: 0, scale: 0.62, yPercent: 5 });
+    gsap.set(leaves[idx], { y: 0 });
+  });
+  const timeline = gsap.timeline({
+    defaults: { ease: 'power3.inOut' },
+    scrollTrigger: {
+      id: 'atlas-sequence',
+      trigger: seq,
+      start: 'top top',
+      end: () => `+=${Math.round(window.innerHeight * (2.7 * total + 1.2))}`,
+      pin: true,
+      scrub: 3,
+      anticipatePin: 1,
+      invalidateOnRefresh: true,
+      onUpdate: (self) => {
+        const idx = Math.min(total - 1, Math.floor(self.progress * total));
+        shell.update(planes[idx].dataset.chapter);
+      }
+    }
+  });
+  seqTrigger = timeline.scrollTrigger;
+  planes.forEach((plane, idx) => {
+    const leaf = leaves[idx];
+    if (idx === 0) {
+      timeline.fromTo(plane, { scale: 1.06 }, { scale: 1, duration: 0.9, ease: 'power3.inOut' }, 0);
+    } else {
+      timeline.to(planes[idx - 1], { opacity: 0, scale: 1.16, duration: 1.2, ease: 'power3.inOut' });
+      timeline.to(plane, { opacity: 1, scale: 1, yPercent: 0, duration: 1.2, ease: 'power3.inOut' }, '<');
+    }
+    timeline.to(leaf, { y: () => -overflow(leaf), duration: 2.5, ease: 'none' });
+    timeline.to({}, { duration: 0.7 });
+  });
+}
+
 function goTo(id) {
-  const target = id === 'inicio' ? document.querySelector('#inicio') : document.getElementById(id);
-  target?.scrollIntoView({ behavior: shell?.reduced() ? 'auto' : 'smooth', block: 'start' });
+  if (id === 'inicio') {
+    document.querySelector('#inicio')?.scrollIntoView({ behavior: shell?.reduced() ? 'auto' : 'smooth', block: 'start' });
+    return;
+  }
+  if (seqTrigger && !mobile.matches && !shell?.reduced()) {
+    const ids = sequenceIds();
+    const idx = ids.indexOf(id);
+    if (idx >= 0) {
+      const span = seqTrigger.end - seqTrigger.start;
+      window.scrollTo({ top: seqTrigger.start + span * (idx / ids.length) + 4, behavior: 'smooth' });
+      return;
+    }
+  }
+  document.getElementById(id)?.scrollIntoView({ behavior: shell?.reduced() ? 'auto' : 'smooth', block: 'start' });
 }
 
 function footerMarkup() {
