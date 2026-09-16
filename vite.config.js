@@ -12,8 +12,7 @@ function copyRuntimeContent() {
         ['data/media.json', 'data/media.json'],
         ['data/sources.json', 'data/sources.json'],
         ['assets/historia', 'assets/historia'],
-        ['vendor', 'vendor'],
-        ['documentacion/MATRIZ_24_TRATAMIENTOS.md', 'documentacion/MATRIZ_24_TRATAMIENTOS.md']
+        ['vendor', 'vendor']
       ];
       for (const [source, target] of copies) {
         const destination = resolve(output, target);
@@ -33,9 +32,6 @@ export default defineConfig({
     rollupOptions: {
       input: {
         index: resolve(import.meta.dirname, 'index.html'),
-        atlas: resolve(import.meta.dirname, '01-atlas.html'),
-        cronologia: resolve(import.meta.dirname, '02-cronologia.html'),
-        reescritura: resolve(import.meta.dirname, '03-reescritura.html'),
         creditos: resolve(import.meta.dirname, 'creditos.html')
       }
     }

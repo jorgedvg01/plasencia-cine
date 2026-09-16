@@ -3,42 +3,43 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Tres experiencias para recorrer la historia de Plasencia a través de ocho lugares.">
-  <title>Plasencia · Tres miradas históricas</title>
+  <meta name="description" content="Reescritura integral de la historia de Plasencia mediante capas, umbrales, ascensos y pausas.">
+  <title>Reescritura integral · Plasencia</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/f9.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="css/fonts.css">
-  <link rel="stylesheet" href="css/selector.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/editorial.css">
+  <link rel="stylesheet" href="css/reescritura.css">
+  <script defer src="vendor/gsap.min.js"></script>
+  <script defer src="vendor/ScrollTrigger.min.js"></script>
+  <script type="module" src="js/modelos/reescritura.js"></script>
 </head>
-<body>
-  <header class="selector-header">
-    <a href="index.html">PLASENCIA</a>
-    <span>TRES MIRADAS · OCHO CAPÍTULOS</span>
-    <a href="creditos.html">Fuentes y fotografías ↗</a>
+<body class="model-page rewrite-page is-static" data-model="reescritura">
+  <a class="skip-link" href="#story-root">Saltar al recorrido</a>
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="Ir al inicio del recorrido"><span>PLASENCIA</span><small>Archivo de una ciudad</small></a>
+    <p class="edition-label">REESCRITURA INTEGRAL</p>
+    <div class="header-actions">
+      <button class="text-button" id="motion-toggle" type="button" aria-pressed="false">Modo lectura</button>
+      <button class="text-button" id="chapters-open" type="button">Capítulos <span aria-hidden="true">＋</span></button>
+    </div>
   </header>
   <main>
-    <section class="selector-intro" aria-labelledby="selector-title">
-      <p>1186 — HOY · HISTORIA, ARQUITECTURA Y MEMORIA</p>
-      <h1 id="selector-title">La misma ciudad.<br><em>Tres maneras de recorrerla.</em></h1>
-      <p class="intro-copy">Los hechos y las fotografías son comunes. Cambian la arquitectura, el ritmo, la dirección del movimiento y la forma de descubrir cada capítulo.</p>
+    <section class="prologue prologue-rewrite" id="inicio" aria-labelledby="cover-title">
+      <div class="prologue-copy">
+        <p class="eyebrow">PLASENCIA · PIEDRA, AGUA, TIEMPO</p>
+        <h1 id="cover-title">La ciudad escrita <em>en capas.</em></h1>
+        <p>No existe un solo rumbo. Cada capítulo abre su propia arquitectura: atravesar, ascender, expandirse, detenerse o mirar de cerca.</p>
+        <a class="enter-link" href="#muralla">Abrir la primera capa <span aria-hidden="true">↓</span></a>
+      </div>
+      <figure class="master-image">
+        <img src="assets/base-4k.png" alt="Composición artística maestra con monumentos de Plasencia" width="3840" height="2160" fetchpriority="high">
+        <figcaption>Composición artística maestra · presentación del conjunto</figcaption>
+      </figure>
+      <div class="rewrite-rule" aria-hidden="true"></div>
     </section>
-    <nav class="model-selector" aria-label="Elegir una versión">
-      <a class="model-card atlas-card" href="01-atlas.html">
-        <figure><img src="assets/historia/muralla.jpg" alt="Torre Lucía y muralla de Plasencia" width="1280" height="960"></figure>
-        <span class="number">01</span>
-        <div><small>EXPLORACIÓN ESPACIAL</small><h2>Atlas sensible</h2><p>La historia se despliega como un territorio de hojas, rutas, umbrales y claros.</p><b>Entrar en el atlas ↗</b></div>
-      </a>
-      <a class="model-card chronology-card" href="02-cronologia.html">
-        <figure><img src="assets/historia/plaza.jpg" alt="Plaza Mayor de Plasencia" width="6000" height="4000"></figure>
-        <span class="number">02</span>
-        <div><small>SCROLL VERTICAL · TIEMPO HORIZONTAL</small><h2>Cronología horizontal</h2><p>Una línea transporta entre épocas; cada monumento conserva su propio gesto interno.</p><b>Seguir la línea ↗</b></div>
-      </a>
-      <a class="model-card rewrite-card" href="03-reescritura.html">
-        <figure><img src="assets/historia/catedral.jpg" alt="Catedral Nueva de Plasencia" width="2048" height="1181"></figure>
-        <span class="number">03</span>
-        <div><small>UMBRAL · ASCENSO · PROFUNDIDAD · PAUSA</small><h2>Reescritura integral</h2><p>Ocho arquitecturas enlazadas sin un eje global dominante ni una plantilla repetida.</p><b>Abrir las capas ↗</b></div>
-      </a>
-    </nav>
+    <div id="story-root" class="story-root" aria-live="polite"><p class="loading-copy">Leyendo las capas…</p></div>
   </main>
-  <footer><p>Capítulos: Muralla · Puerta del Sol · Plaza Mayor · Catedral · Ayuntamiento y Mayorga · Acueducto · Parque de los Pinos · Alfonso VIII.</p><a href="documentacion/MATRIZ_24_TRATAMIENTOS.md">Consultar la matriz narrativa ↗</a></footer>
 </body>
 </html>

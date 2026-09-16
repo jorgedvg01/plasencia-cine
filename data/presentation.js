@@ -32,23 +32,11 @@ export const editorialLayouts = {
 };
 
 export const models = {
-  atlas: {
-    label: '01 / Atlas sensible',
-    title: 'La ciudad como territorio.',
-    deck: 'Ocho lugares desplegados como hojas de un mismo atlas. La ruta cambia de dirección y deja espacio para detenerse.',
-    file: '01-atlas.html'
-  },
-  cronologia: {
-    label: '02 / Cronología horizontal',
-    title: 'El tiempo cruza la ciudad.',
-    deck: 'El scroll vertical impulsa una línea horizontal; dentro de cada estación, el monumento decide su propio movimiento.',
-    file: '02-cronologia.html'
-  },
   reescritura: {
-    label: '03 / Reescritura integral',
+    label: 'REESCRITURA INTEGRAL',
     title: 'La ciudad escrita en capas.',
     deck: 'Umbrales, ascensos, aperturas, profundidad y pausas componen una arquitectura sin eje global dominante.',
-    file: '03-reescritura.html'
+    file: 'index.html'
   }
 };
 

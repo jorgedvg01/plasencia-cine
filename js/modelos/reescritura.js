@@ -228,5 +228,5 @@ function goTo(id) {
 }
 
 function footerMarkup() {
-  return `<footer class="site-footer"><div><p class="eyebrow">CIERRE · OCHO CAPAS / UNA CIUDAD</p><h2>Ninguna ciudad termina de escribirse.</h2><nav><a href="#inicio">Volver al principio</a><a href="01-atlas.html">Volver a Atlas</a><a href="index.html">Comparar las tres versiones</a><a href="creditos.html">Fuentes y fotografías</a></nav></div></footer>`;
+  return `<footer class="site-footer"><div><p class="eyebrow">CIERRE · OCHO CAPAS / UNA CIUDAD</p><h2>Ninguna ciudad termina de escribirse.</h2><nav><a href="#inicio">Volver al principio</a><a href="creditos.html">Fuentes y fotografías</a></nav></div></footer>`;
 }
