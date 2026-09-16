@@ -1,59 +1,54 @@
-# Plasencia · tres miradas históricas
+# Plasencia — Cinematic Novel asset package
 
-Reconstrucción completa de tres experiencias narrativas sobre ocho lugares de Plasencia. Los tres modelos consumen la misma base histórica y fotográfica, pero cambian de forma inequívoca su arquitectura, composición, ritmo, dirección e interacción.
+Este paquete corresponde a la dirección artística aprobada para la rama `cinematic-novel`.
 
-## Abrir la entrega
+## Contenido listo para copiar al repositorio
 
-La web carga datos JSON y debe abrirse mediante un servidor local, no haciendo doble clic en el HTML.
+Copia el contenido de `assets/cinematic-novel/` dentro de:
 
-### Windows
+`plasencia-cine/assets/cinematic-novel/`
 
-Ejecuta `ABRIR_PLASENCIA.bat`.
+Incluye:
 
-### macOS o Linux
+- `cover_map.webp` — plano maestro interactivo basado en la referencia aprobada.
+- `chapter_mural_master.webp` — mural vertical maestro de capítulos para producción y referencia.
+- `transitions/foliage_05_06_mid.webp/.png` — vegetación media Catedral → Ayuntamiento.
+- `transitions/foliage_catedral-ayuntamiento.webp/.png` — vegetación de costura Catedral → Ayuntamiento.
 
-Desde esta carpeta:
+## Referencias aprobadas
+
+- `references/approved/01_cover_hotspots_reference.png`
+- `references/approved/02_vertical_chapters_reference.png`
+- `references/approved/03_catedral_ayuntamiento_transition_reference.png`
+
+Estas referencias NO deben usarse como una única imagen plana final para los capítulos. Sirven como dirección de arte y mapa de composición.
+
+## Rama GitHub
+
+La rama de trabajo es:
+
+`cinematic-novel`
+
+Después de copiar los assets:
 
 ```bash
-python3 servidor.py
-```
-
-Después abre `http://127.0.0.1:4173/`. El servidor utiliza la versión compilada de `dist/`.
-
-## Desarrollo
-
-Requiere Node.js 20 o posterior.
-
-```bash
-npm install
+git switch cinematic-novel
+mkdir -p assets/cinematic-novel/transitions
+# copia aquí el contenido del paquete
+git add assets/cinematic-novel
+git commit -m "cinematic novel: add approved visual assets"
+git push origin cinematic-novel
 npm run dev
 ```
 
-Comprobación técnica y compilación:
+## Principio visual
 
-```bash
-npm run check
-npm run build
-```
+- Portada: plano general con hotspots clicables.
+- Capítulos: composiciones independientes inspiradas en el mural vertical.
+- Tipografía: HTML/CSS, nunca incrustada en los assets finales.
+- Transiciones: continuidad mediante piedra, ramas, vegetación, arquitectura, sombra y otros elementos físicos.
+- Regla: no usar fades genéricos como solución por defecto; los límites de capítulo deben dejar de sentirse como cortes rectos.
 
-## Las tres versiones
+## Nota importante
 
-- `01-atlas.html`: territorio vertical de hojas, rutas y claros. No usa transporte horizontal global.
-- `02-cronologia.html`: scroll vertical nativo que impulsa el único transporte cronológico horizontal global del proyecto; cada estación conserva una narrativa interna distinta.
-- `03-reescritura.html`: secuencia de umbrales, capas, profundidad, ascensos y pausas sin un eje X global.
-
-## Arquitectura
-
-- `data/chapters.json`: base factual única de los ocho capítulos.
-- `data/media.json`: fotografías, autores, fechas, licencias y procedencia.
-- `data/sources.json`: índice común de fuentes históricas.
-- `js/common/`: carga de datos, marcado y motor compartido de navegación, Efecto2.0 y lightbox.
-- `js/modelos/`: puesta en escena específica de cada modelo.
-- `css/editorial.css`: ocho retículas editoriales diferenciadas sobre un motor modal común.
-- `documentacion/MATRIZ_24_TRATAMIENTOS.md`: planificación previa de 3 × 8 tratamientos.
-- `documentacion/MATRIZ_CUMPLIMIENTO.md`: requisitos, pruebas, resultados y estados honestos.
-- `documentacion/CAMBIOS.md`: diferencias frente al checkpoint anterior.
-- `documentacion/COMPARACION_CRUZADA.md`: igualdad factual y diferencias de los ocho capítulos.
-- `documentacion/PRUEBAS.md`: evidencia técnica y límite explícito de la revisión visual.
-
-La composición maestra `assets/base-4k.png` se conserva byte a byte respecto al último paquete reparado. No se incorporan imágenes generadas ni documentos históricos simulados.
+Los dos PNG/WebP de vegetación son los primeros assets reales de transición preparados. El resto de costuras de producción deben continuar con el mismo criterio fotográfico y cinematográfico, no con SVG decorativo ni recortes tipo pegatina.
