@@ -1,20 +1,54 @@
-# Cinematic Novel — assets de transición
+# Plasencia — Cinematic Novel asset package
 
-Esta carpeta contiene las **costuras vivas** entre capítulos. No son fondos completos: se colocan por encima de dos escenas y se desplazan a distinta velocidad para que el límite entre capítulos deje de sentirse como una diapositiva.
+Este paquete corresponde a la dirección artística aprobada para la rama `cinematic-novel`.
 
-## Costuras
-- `seam_muralla-puerta.svg`: masa de piedra/sombra; prepara el paso hacia el arco.
-- `seam_puerta-plaza.svg`: laterales oscuros de arco; la cámara sale de la puerta y abre la plaza.
-- `seam_plaza-catedral.svg`: copa vegetal; rompe la frontera horizontal y prepara el ascenso.
-- `seam_catedral-ayuntamiento.svg`: **vegetación colgante inspirada en la costura 05→06 del mural aprobado**; es la referencia principal del sistema.
-- `seam_ayuntamiento-acueducto.svg`: árbol/tronco lateral; oculta el cambio y abre el travelling del acueducto.
-- `seam_acueducto-parque.svg`: masa de pinos; los árboles empiezan perteneciendo al acueducto y terminan perteneciendo al parque.
-- `seam_parque-monumento.svg`: vegetación a contraluz que conduce al epílogo nocturno.
+## Contenido listo para copiar al repositorio
 
-## Regla de montaje
-Las costuras deben entrar **antes** de que termine el capítulo A y seguir visibles **después** de que empiece B. Nunca usar `fade` como transición principal. La profundidad se obtiene mediante 2–3 velocidades (background / seam / foreground) y oclusión natural.
+Copia el contenido de `assets/cinematic-novel/` dentro de:
 
-## Dirección editorial
-Cada capítulo tiene una composición tipográfica diferente (`layout-left`, `right`, `split`, `left-low`, `right-high`, `wide`, `quiet`, `center`). La variedad debe seguir siendo parte del mismo sistema: serif editorial, marfil cálido, microtipografía espaciada, negros profundos y movimiento contenido.
+`plasencia-cine/assets/cinematic-novel/`
 
-Los fondos fotográficos tienen fallback a los medios existentes del proyecto para que la rama siga siendo revisable mientras se sustituyen progresivamente por masters aprobados de mayor resolución.
+Incluye:
+
+- `cover_map.webp` — plano maestro interactivo basado en la referencia aprobada.
+- `chapter_mural_master.webp` — mural vertical maestro de capítulos para producción y referencia.
+- `transitions/foliage_05_06_mid.webp/.png` — vegetación media Catedral → Ayuntamiento.
+- `transitions/foliage_catedral-ayuntamiento.webp/.png` — vegetación de costura Catedral → Ayuntamiento.
+
+## Referencias aprobadas
+
+- `references/approved/01_cover_hotspots_reference.png`
+- `references/approved/02_vertical_chapters_reference.png`
+- `references/approved/03_catedral_ayuntamiento_transition_reference.png`
+
+Estas referencias NO deben usarse como una única imagen plana final para los capítulos. Sirven como dirección de arte y mapa de composición.
+
+## Rama GitHub
+
+La rama de trabajo es:
+
+`cinematic-novel`
+
+Después de copiar los assets:
+
+```bash
+git switch cinematic-novel
+mkdir -p assets/cinematic-novel/transitions
+# copia aquí el contenido del paquete
+git add assets/cinematic-novel
+git commit -m "cinematic novel: add approved visual assets"
+git push origin cinematic-novel
+npm run dev
+```
+
+## Principio visual
+
+- Portada: plano general con hotspots clicables.
+- Capítulos: composiciones independientes inspiradas en el mural vertical.
+- Tipografía: HTML/CSS, nunca incrustada en los assets finales.
+- Transiciones: continuidad mediante piedra, ramas, vegetación, arquitectura, sombra y otros elementos físicos.
+- Regla: no usar fades genéricos como solución por defecto; los límites de capítulo deben dejar de sentirse como cortes rectos.
+
+## Nota importante
+
+Los dos PNG/WebP de vegetación son los primeros assets reales de transición preparados. El resto de costuras de producción deben continuar con el mismo criterio fotográfico y cinematográfico, no con SVG decorativo ni recortes tipo pegatina.
