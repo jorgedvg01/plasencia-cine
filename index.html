@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Un recorrido cinematográfico por ocho lugares de la historia de Plasencia.">
-  <title>Plasencia · Historia viva</title>
+  <meta name="description" content="Plasencia Historia · una novela visual interactiva por ocho lugares de la ciudad.">
+  <title>Plasencia · Novela viviente</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/f9.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="css/fonts.css">
@@ -15,12 +15,12 @@
   <script defer src="vendor/ScrollTrigger.min.js"></script>
   <script type="module" src="js/modelos/reescritura.js"></script>
 </head>
-<body class="model-page rewrite-page is-static" data-model="reescritura">
+<body class="model-page rewrite-page cinematic-novel is-static" data-model="reescritura">
   <a class="skip-link" href="#story-root">Saltar al recorrido</a>
 
-  <header class="site-header cinema-header">
-    <a class="brand" href="#inicio" aria-label="Ir al inicio"><span>PLASENCIA</span><small>Historia viva</small></a>
-    <p class="edition-label">PIEDRA · AGUA · TIEMPO</p>
+  <header class="site-header novel-header">
+    <a class="brand" href="#inicio" aria-label="Volver al plano general"><span>PLASENCIA</span><small>Historia</small></a>
+    <p class="edition-label">LUGAR · TIEMPO · PERSONAS · MEMORIA</p>
     <div class="header-actions">
       <button class="text-button" id="motion-toggle" type="button" aria-pressed="false">Modo lectura</button>
       <button class="text-button" id="chapters-open" type="button">Capítulos <span aria-hidden="true">＋</span></button>
@@ -28,24 +28,30 @@
   </header>
 
   <main>
-    <section class="cinema-hero" id="inicio" aria-labelledby="cover-title">
-      <div class="cinema-hero-frame">
-        <figure class="cinema-hero-image" aria-hidden="true">
-          <img src="assets/base-4k.png" alt="" width="3840" height="2160" fetchpriority="high">
-        </figure>
-        <div class="cinema-hero-shade" aria-hidden="true"></div>
-        <div class="cinema-hero-copy">
-          <p class="cinema-kicker">PLASENCIA · EXTREMADURA</p>
-          <h1 id="cover-title"><span>La ciudad</span><em>escrita en capas.</em></h1>
-          <p class="cinema-hero-deck">Ocho lugares. Ocho formas de mirar una ciudad que nunca terminó de escribirse.</p>
+    <section class="novel-map" id="inicio" aria-label="Plano general interactivo de Plasencia">
+      <div class="novel-map__frame">
+        <picture class="novel-map__picture" aria-hidden="true">
+          <img src="assets/cinematic-novel/cover_map.webp" data-fallback="assets/base-4k.png" alt="" fetchpriority="high">
+        </picture>
+        <div class="novel-map__shade" aria-hidden="true"></div>
+        <div class="novel-map__intro">
+          <p>PLASENCIA · HISTORIA</p>
+          <h1>Más que un lugar,<br><em>una historia viva.</em></h1>
+          <span>Elige un lugar o comienza el recorrido.</span>
         </div>
-        <div class="cinema-hero-index" aria-hidden="true"><span>1186</span><i></i><span>HOY</span></div>
-        <a class="cinema-enter" href="#muralla"><span>Comenzar el viaje</span><b aria-hidden="true">↓</b></a>
-        <p class="cinema-scroll-note" aria-hidden="true">SCROLL PARA ATRAVESAR LA HISTORIA</p>
+        <button class="map-hotspot hs-muralla" data-go="muralla" aria-label="Abrir capítulo Muralla"><i></i><span>Muralla</span></button>
+        <button class="map-hotspot hs-puerta" data-go="puerta" aria-label="Abrir capítulo Puerta del Sol"><i></i><span>Puerta del Sol</span></button>
+        <button class="map-hotspot hs-plaza" data-go="plaza" aria-label="Abrir capítulo Plaza Mayor"><i></i><span>Plaza Mayor</span></button>
+        <button class="map-hotspot hs-catedral" data-go="catedral" aria-label="Abrir capítulo Catedral"><i></i><span>Catedral</span></button>
+        <button class="map-hotspot hs-ayuntamiento" data-go="ayuntamiento" aria-label="Abrir capítulo Ayuntamiento"><i></i><span>Ayuntamiento</span></button>
+        <button class="map-hotspot hs-acueducto" data-go="acueducto" aria-label="Abrir capítulo Acueducto"><i></i><span>Acueducto</span></button>
+        <button class="map-hotspot hs-parque" data-go="parque" aria-label="Abrir capítulo Parque de los Pinos"><i></i><span>Parque de los Pinos</span></button>
+        <button class="map-hotspot hs-monumento" data-go="monumento" aria-label="Abrir capítulo Alfonso VIII"><i></i><span>Alfonso VIII</span></button>
+        <a class="novel-map__start" href="#muralla"><span>Comenzar el viaje</span><b aria-hidden="true">↓</b></a>
       </div>
     </section>
 
-    <div id="story-root" class="story-root" aria-live="polite"><p class="loading-copy">Preparando el recorrido…</p></div>
+    <div id="story-root" class="story-root" aria-live="polite"><p class="loading-copy">Preparando la novela…</p></div>
   </main>
 </body>
 </html>
